@@ -32,5 +32,32 @@ body {
 /*-- Games --------------------------------------------------------------------- */
 
 .games {
-  background-color: blue;
+}
+
+.games-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 20px;
+  gap: 1rem;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 300px;
+  height: fit-content;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.game-card > img {
+  width: auto;
+  height: 200px; 
+  object-fit: cover;
+}
+
+.game-card > h1 {
+  margin: 0;
+  font-size: 1.5rem;
 }

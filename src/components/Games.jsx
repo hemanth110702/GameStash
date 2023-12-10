@@ -1,24 +1,21 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import apiClient from "../services/apiClient";
+import { useState, useEffect } from "react";
+import useGames from "../hooks/useGames";
+import Game from "./Game";
 
 const Games = () => {
-  const [games, setGames] = useState([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((err) => setError(err.message));
-  },[]);
+  const { games, error } = useGames();
 
   return (
-    <>
-      <div className="games">Games</div>
+    <div className="games">
       {error && <h1>{error}</h1>}
-      {games.map(game => <li key={game.id}>{game.name}</li>)}
-    </>
+      <div className="games-container">
+        {games.map((game) => (
+          <div key={game.id}>
+            <Game game={game} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
