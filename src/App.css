@@ -61,3 +61,21 @@ body {
   margin: 0;
   font-size: 1.5rem;
 }
+
+
+@media (prefers-reduced-motion) {
+  
+  .react-loading-skeleton {
+    --pseudo-element-display: block;
+  }
+}
+
+.skeleton-card {
+  width: 300px;
+  background-color: black;
+  border: 1px solid white;
+}
+
+.skeleton-card > div {
+  /* background-color: red; */
+}
