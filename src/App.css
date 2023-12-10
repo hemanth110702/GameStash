@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*-- Navbar --------------------------------------------------------- */
+
+.navbar {
+  background-color: red;
+  margin-top: 0.5rem;
+}
+
+.navbar-section {
+  display: grid;
+  grid-template-columns: 0.3fr 1.5fr 0.2fr 0.2fr 0.2fr;
+}
+
+.navbar-section > h1 {
+  margin: 0;
+}
+
+.navbar-section > input {
+  margin-right: 1rem;
+}
+
+/*-- Category Display ----------------------------------------------------------- */
+
+.category {
+  background-color: green;
+}
+
+/*-- Games --------------------------------------------------------------------- */
+
+.games {
+  background-color: blue;
+}
