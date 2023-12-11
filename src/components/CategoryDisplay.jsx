@@ -5,17 +5,21 @@ const CategoryDisplay = ({
   setChanged,
   selectedPlatform,
   setSelectedPlatform,
-  setSelectedOrder
+  setSelectedOrder,
+  selectedGenre,
 }) => {
+
+  const gameHeading = `${selectedPlatform?.name || ''}  ${selectedGenre?.name || ''} Games `
+
   return (
     <div className="category">
-      CategoryDisplay
+      <h1>{gameHeading}</h1>
       <PlatformSelector
-       setChanged = {setChanged}
+        setChanged={setChanged}
         selectedPlatform={selectedPlatform}
         setSelectedPlatform={setSelectedPlatform}
       />
-      <OrderBySelector setSelectedOrder={setSelectedOrder}/>
+      <OrderBySelector setSelectedOrder={setSelectedOrder} />
     </div>
   );
 };

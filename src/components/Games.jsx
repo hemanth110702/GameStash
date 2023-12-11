@@ -4,9 +4,9 @@ import Game from "./Game";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const Games = ({changed, setChanged, selectedGenre, selectedPlatform, selectedOrder }) => {
+const Games = ({changed, setChanged, selectedGenre, selectedPlatform, selectedOrder, search }) => {
   const [loading, setLoading] = useState(true);
-  const { games, error } = useGames(setLoading, selectedGenre, selectedPlatform, setChanged, selectedOrder);
+  const { games, error } = useGames(setLoading, selectedGenre, selectedPlatform, setChanged, selectedOrder, search);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (

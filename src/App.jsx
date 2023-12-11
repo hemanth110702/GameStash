@@ -10,14 +10,15 @@ function App() {
   const [ selectedGenre, setSelectedGenre ] = useState(null);
   const [ selectedPlatform, setSelectedPlatform ] = useState(null);
   const [ selectedOrder, setSelectedOrder] = useState(null);
+  const [ search, setSearch ] = useState('');
   const [ changed, setChanged ] = useState(false);
 
   return (
     <>
-      <NavBar />
+      <NavBar setSearch={setSearch} setChanged={setChanged} />
       <SideBar changed={changed} setChanged={setChanged} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
-      <CategoryDisplay changed={changed} setChanged={setChanged} selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
-      <Games changed={changed} setChanged={setChanged} selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
+      <CategoryDisplay changed={changed} selectedGenre={selectedGenre} setChanged={setChanged} selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
+      <Games search={search} changed={changed} setChanged={setChanged} selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
     </>
   );
 }
