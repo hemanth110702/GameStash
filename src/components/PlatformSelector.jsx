@@ -12,7 +12,7 @@ const PlatformSelector = ({setChanged,selectedPlatform,setSelectedPlatform}) => 
 
   if(error) return null;
   return (
-    <select name="languages" id="lang" onChange={handlePlatform}>
+    <select name="platform" id="pf" onChange={handlePlatform}>
       <option value="Platform" >
         {selectedPlatform?.name || 'Platform'}
       </option>

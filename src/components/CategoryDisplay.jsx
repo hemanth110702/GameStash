@@ -1,3 +1,4 @@
+import OrderBySelector from "./OrderBySelector";
 import PlatformSelector from "./PlatformSelector";
 
 const CategoryDisplay = ({
@@ -13,6 +14,7 @@ const CategoryDisplay = ({
         selectedPlatform={selectedPlatform}
         setSelectedPlatform={setSelectedPlatform}
       />
+      <OrderBySelector />
     </div>
   );
 };
