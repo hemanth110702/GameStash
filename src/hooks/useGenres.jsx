@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
 import { CanceledError } from "axios";
 
-const useGenres = () => {
+const useGenres = (setLoading) => {
   const [genres, setGenres] = useState([]);
   const [error, setError] = useState("");
 
+  
   useEffect(() => {
+    setLoading(true);
     const controller = new AbortController();
 
     apiClient

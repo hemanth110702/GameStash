@@ -1,9 +1,9 @@
 import GenresList from "./GenresList";
 
-const SideBar = () => {
+const SideBar = ({setSelectedGenre}) => {
   return (
     <div className="sidebar">
-      <GenresList />
+      <GenresList setSelectedGenre={setSelectedGenre}/>
     </div>
   );
 }

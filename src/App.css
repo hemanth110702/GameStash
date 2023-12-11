@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
 }
-/*  */
 
 
 /*-- Navbar --------------------------------------------------------- */
@@ -99,8 +98,4 @@ body {
   width: 300px;
   background-color: black;
   border: 1px solid white;
-}
-
-.skeleton-card > div {
-  /* background-color: red; */
 }
