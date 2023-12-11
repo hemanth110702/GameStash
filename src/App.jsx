@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <SideBar setSelectedGenre={setSelectedGenre} />
+      <SideBar selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
       <CategoryDisplay />
       <Games selectedGenre={selectedGenre} />
     </>

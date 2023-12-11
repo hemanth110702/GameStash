@@ -1,10 +1,10 @@
 import { useState } from "react";
-import useGenres from "../hooks/useGenres"
+import useGenres from "../hooks/useGenres";
 import getOptimizedImage from "../services/image-url";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const GenresList = ({setSelectedGenre}) => {
+const GenresList = ({ selectedGenre, setSelectedGenre }) => {
   const [loading, setLoading] = useState(false);
   const { genres } = useGenres(setLoading);
   return (
@@ -22,11 +22,18 @@ const GenresList = ({setSelectedGenre}) => {
       {genres.map((genre) => (
         <li key={genre.id}>
           <img src={getOptimizedImage(genre.image_background)} alt="" />
-          <button onClick={()=> setSelectedGenre(genre) }>{genre.name}</button>
+          <button
+            style={{
+              backgroundColor: selectedGenre?.id === genre.id ? "blue" : "",
+            }}
+            onClick={() => setSelectedGenre(genre)}
+          >
+            {genre.name}
+          </button>
         </li>
       ))}
     </ul>
   );
-}
+};
 
-export default GenresList
+export default GenresList;
