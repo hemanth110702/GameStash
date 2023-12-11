@@ -1,7 +1,7 @@
 import usePlatform from "../hooks/usePlatform";
 
 
-const PlatformSelector = ({selectedPlatform,setSelectedPlatform}) => {
+const PlatformSelector = ({setChanged,selectedPlatform,setSelectedPlatform}) => {
   const {platforms, error} = usePlatform();
 
   const handlePlatform = (e) => {

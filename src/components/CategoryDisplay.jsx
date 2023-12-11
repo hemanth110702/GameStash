@@ -1,10 +1,18 @@
 import PlatformSelector from "./PlatformSelector";
 
-const CategoryDisplay = ({ selectedPlatform,setSelectedPlatform}) => {
+const CategoryDisplay = ({
+  setChanged,
+  selectedPlatform,
+  setSelectedPlatform,
+}) => {
   return (
     <div className="category">
       CategoryDisplay
-      <PlatformSelector selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform}/>
+      <PlatformSelector
+       setChanged = {setChanged}
+        selectedPlatform={selectedPlatform}
+        setSelectedPlatform={setSelectedPlatform}
+      />
     </div>
   );
 };

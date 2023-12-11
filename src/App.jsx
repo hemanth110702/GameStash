@@ -9,13 +9,14 @@ function App() {
 
   const [ selectedGenre, setSelectedGenre ] = useState(null);
   const [ selectedPlatform, setSelectedPlatform ] = useState(null);
+  const [ changed, setChanged ] = useState(false);
 
   return (
     <>
       <NavBar />
-      <SideBar selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
-      <CategoryDisplay selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform}/>
-      <Games selectedGenre={selectedGenre} selectedPlatform={selectedPlatform}/>
+      <SideBar changed={changed} setChanged={setChanged} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
+      <CategoryDisplay changed={changed} setChanged={setChanged} selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform}/>
+      <Games changed={changed} setChanged={setChanged} selectedGenre={selectedGenre} selectedPlatform={selectedPlatform}/>
     </>
   );
 }
