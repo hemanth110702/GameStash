@@ -2,12 +2,15 @@ body {
   margin: 0;
   padding: 0;
 }
+/*  */
+
 
 /*-- Navbar --------------------------------------------------------- */
 
 .navbar {
+  width: 100%;
+  position: fixed;
   background-color: red;
-  margin-top: 0.5rem;
 }
 
 .navbar-section {
@@ -22,16 +25,38 @@ body {
 .navbar-section > input {
   margin-right: 1rem;
 }
+/* Sidebar ------------------------------------------------- */
+
+.sidebar {
+  position: fixed;
+  margin-top: 37.5px;
+  width: 150px;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: red;
+}
+
+.sidebar > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar > ul > li > img{
+  width: 50px;
+}
 
 /*-- Category Display ----------------------------------------------------------- */
 
 .category {
   background-color: green;
+  padding-top: 50px;
+  padding-left: 180px;
 }
 
 /*-- Games --------------------------------------------------------------------- */
 
 .games {
+  padding-left: 150px;
 }
 
 .games-container {
