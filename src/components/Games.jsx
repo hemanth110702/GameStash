@@ -4,15 +4,30 @@ import Game from "./Game";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const Games = ({changed, setChanged, selectedGenre, selectedPlatform, selectedOrder, search }) => {
+const Games = ({
+  changed,
+  setChanged,
+  selectedGenre,
+  selectedPlatform,
+  selectedOrder,
+  search,
+}) => {
   const [loading, setLoading] = useState(true);
-  const { games, error } = useGames(setLoading, selectedGenre, selectedPlatform, setChanged, selectedOrder, search);
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const { games, error } = useGames(
+    setLoading,
+    selectedGenre,
+    selectedPlatform,
+    setChanged,
+    selectedOrder,
+    search
+  );
+  const skeletons = Array(20).fill(1);
+
+  if (error) return <h1>{error}</h1>;
 
   return (
     <div className="games">
-      {error && <h1>{error}</h1>}
-      { (loading || changed)  && (
+      {(loading || changed) && (
         <div className="games-container">
           {skeletons.map((_, index) => (
             <div key={index}>
@@ -26,7 +41,6 @@ const Games = ({changed, setChanged, selectedGenre, selectedPlatform, selectedOr
           ))}
         </div>
       )}
-
       <div className="games-container">
         {games.map((game) => (
           <div key={game.id}>
