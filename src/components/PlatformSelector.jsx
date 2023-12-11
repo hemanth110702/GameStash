@@ -2,7 +2,7 @@ import usePlatform from "../hooks/usePlatform";
 
 
 const PlatformSelector = ({setChanged,selectedPlatform,setSelectedPlatform}) => {
-  const {platforms, error} = usePlatform();
+  const platforms = usePlatform();
 
   const handlePlatform = (e) => {
     const value = e.target.value;
@@ -10,7 +10,6 @@ const PlatformSelector = ({setChanged,selectedPlatform,setSelectedPlatform}) => 
     setSelectedPlatform(...fetchPlatform);
   }
 
-  if(error) return null;
   return (
     <select name="platform" id="pf" onChange={handlePlatform}>
       <option value="Platform" >
