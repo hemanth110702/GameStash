@@ -5,6 +5,7 @@ const CategoryDisplay = ({
   setChanged,
   selectedPlatform,
   setSelectedPlatform,
+  setSelectedOrder
 }) => {
   return (
     <div className="category">
@@ -14,7 +15,7 @@ const CategoryDisplay = ({
         selectedPlatform={selectedPlatform}
         setSelectedPlatform={setSelectedPlatform}
       />
-      <OrderBySelector />
+      <OrderBySelector setSelectedOrder={setSelectedOrder}/>
     </div>
   );
 };

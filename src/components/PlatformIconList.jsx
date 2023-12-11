@@ -25,7 +25,8 @@ const PlatformIconList = ({ platforms }) => {
   return (
     <div>
       {platforms.map(({ platform }, index) => {
-        const IconComponent = iconMap[platform.slug];
+        const IconComponent = iconMap[platform.slug] || '';
+        if(IconComponent === '')return ;
         return <IconComponent key={index} size={32} />;
       })}
     </div>

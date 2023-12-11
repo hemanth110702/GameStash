@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
 import { CanceledError } from "axios";
 
-const useGames = (setLoading, selectedGenre, selectedPlatform, setChanged) => {
+const useGames = (setLoading, selectedGenre, selectedPlatform, setChanged, selectedOrder) => {
   const [games, setGames] = useState([]);
   const [error, setError] = useState("");
   console.log("this is the selected genre" ,selectedGenre);
@@ -13,7 +13,8 @@ const useGames = (setLoading, selectedGenre, selectedPlatform, setChanged) => {
     apiClient
       .get("/games", { signal: controller.signal, params: {
         genres: selectedGenre?.id,
-        platforms: selectedPlatform?.id
+        platforms: selectedPlatform?.id,
+        ordering: selectedOrder?.label,
       } })
       .then((res) => {
         setGames(res.data.results);
@@ -28,7 +29,7 @@ const useGames = (setLoading, selectedGenre, selectedPlatform, setChanged) => {
       });
 
     return () => controller.abort();
-  }, [selectedGenre, selectedPlatform]);
+  }, [selectedGenre, selectedPlatform, selectedOrder]);
 
   return { games, error };
 };

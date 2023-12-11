@@ -1,20 +1,24 @@
 
 
-const OrderBySelector = () => {
+const OrderBySelector = ({setSelectedOrder}) => {
 
   const handleOrderBy = (e) => {
-    const selectedOrder = e.target.innerText; 
+    const orderValue = e.target.value; 
+    setSelectedOrder({label: orderValue});
   }
 
+  const orders = [
+    { value:  "", label: "Relevance" },
+    { value:  "-added", label: "Date added" },
+    { value:  "name", label: "Name" },
+    { value:  "-released", label: "Release date" },
+    { value:  "-metacritic", label: "Popularity" },
+    { value:  "-rating", label: "Average rating" },
+  ]
+
   return (
-    <select name="orderBy" id="order" >
-      <option value="#">Order By</option>
-      <option value="Relevance">Relevance</option>
-      <option value="Date added">Date added</option>
-      <option value="Name">Name</option>
-      <option value="Release Date">Release Date</option>
-      <option value="Popularity">Popularity</option>
-      <option value="Average rating">Average rating</option>
+    <select name="orderBy" id="order" onChange={handleOrderBy}>
+      {orders.map(order => <option key={order.value} value={order.value}>{order.label}</option>)}
     </select>
   );
 }
