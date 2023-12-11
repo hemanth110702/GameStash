@@ -11,12 +11,15 @@ const useGames = (setLoading, selectedGenre, selectedPlatform, setChanged, selec
     setChanged(true);
 
     apiClient
-      .get("/games", { signal: controller.signal, params: {
-        genres: selectedGenre?.id,
-        platforms: selectedPlatform?.id,
-        ordering: selectedOrder?.label,
-        search: search,
-      } })
+      .get("/games", {
+        signal: controller.signal,
+        params: {
+          genres: selectedGenre?.id,
+          parent_platforms: selectedPlatform?.id,
+          ordering: selectedOrder?.label,
+          search: search,
+        },
+      })
       .then((res) => {
         setGames(res.data.results);
         setLoading(false);
