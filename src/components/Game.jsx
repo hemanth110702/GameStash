@@ -3,6 +3,7 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import ReleaseDate from "./ReleaseDate";
 import getOptimizedImage from "../services/image-url";
+import Emoji from "./Emoji";
 
 
 const Game = ({ game }) => {
@@ -10,10 +11,11 @@ const Game = ({ game }) => {
   return (
     <div className="game-card">
       <img src={getOptimizedImage(game.background_image)} alt="game" />
-      <h1>{game.name}</h1>
       <PlatformIconList key={game.slug} platforms={game.parent_platforms} />
+      <h1>{game.name}</h1>
       <CriticScore metacritic={game.metacritic}/>
       <ReleaseDate release={game.released} />
+      <Emoji ratingTop = {game.rating_top}/>
     </div>
   );
 };

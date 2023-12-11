@@ -91,6 +91,11 @@ form > input {
   font-size: 1.5rem;
 }
 
+.game-card > .emoji {
+  width: 50px;
+  object-fit: contain;
+  height: fit-content;
+}
 
 @media (prefers-reduced-motion) {
   
