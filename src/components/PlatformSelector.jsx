@@ -1,15 +1,22 @@
 import usePlatform from "../hooks/usePlatform";
 
-const PlatformSelector = () => {
+
+const PlatformSelector = ({selectedPlatform,setSelectedPlatform}) => {
   const {platforms, error} = usePlatform();
-  console.log("this is the platform", platforms);
+
+  const handlePlatform = (e) => {
+    const value = e.target.value;
+    const fetchPlatform = platforms.filter((platform)=> platform.name === value);
+    setSelectedPlatform(...fetchPlatform);
+  }
+
   if(error) return null;
   return (
-    <select name="languages" id="lang">
-      <option value="" disabled selected>
-        Platform
+    <select name="languages" id="lang" onChange={handlePlatform}>
+      <option value="Platform" >
+        {selectedPlatform?.name || 'Platform'}
       </option>
-      {platforms.map((platform)=> <option value={platform.name}>{platform.name}</option>)}
+      {platforms.map((platform, index)=> <option key={index} value={platform.name}>{platform.name}</option>)}
     </select> 
   );
 }

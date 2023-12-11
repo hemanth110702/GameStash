@@ -8,13 +8,14 @@ import { useState } from "react"
 function App() {
 
   const [ selectedGenre, setSelectedGenre ] = useState(null);
+  const [ selectedPlatform, setSelectedPlatform ] = useState(null);
 
   return (
     <>
       <NavBar />
       <SideBar selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
-      <CategoryDisplay />
-      <Games selectedGenre={selectedGenre} />
+      <CategoryDisplay selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform}/>
+      <Games selectedGenre={selectedGenre} selectedPlatform={selectedPlatform}/>
     </>
   );
 }

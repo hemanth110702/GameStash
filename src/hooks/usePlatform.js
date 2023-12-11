@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
+import { CanceledError } from "axios";
 
 const usePlatform = () => {
   const [platforms, setPlatforms] = useState([]);
