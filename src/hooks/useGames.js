@@ -2,40 +2,78 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
 import { CanceledError } from "axios";
 
-const useGames = (setLoading, selectedGenre, selectedPlatform, setChanged, selectedOrder, search) => {
+const useGames = (
+  setLoading,
+  selectedGenre,
+  selectedPlatform,
+  setChanged,
+  selectedOrder,
+  search
+) => {
   const [games, setGames] = useState([]);
   const [error, setError] = useState("");
-  console.log("this is the selected genre" ,selectedGenre);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+
+  console.log("this is the selected genre", selectedGenre);
+
   useEffect(() => {
     const controller = new AbortController();
     setChanged(true);
 
-    apiClient
-      .get("/games", {
-        signal: controller.signal,
-        params: {
-          genres: selectedGenre?.id,
-          parent_platforms: selectedPlatform?.id,
-          ordering: selectedOrder?.label,
-          search: search,
-        },
-      })
-      .then((res) => {
-        setGames(res.data.results);
+    const fetchData = async (pageNumber) => {
+      try {
+        const response = await apiClient.get("/games", {
+          signal: controller.signal,
+          params: {
+            genres: selectedGenre?.id,
+            parent_platforms: selectedPlatform?.id,
+            ordering: selectedOrder?.label,
+            search: search,
+            page: pageNumber,
+          },
+        });
+
+        const newGames = response.data.results;
+
+        if (newGames.length === 0) {
+          // If no more games are returned, set hasMore to false
+          setHasMore(false);
+        }
+
+        setGames((prevGames) => [...prevGames, ...newGames]);
         setLoading(false);
         setChanged(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         if (err instanceof CanceledError) return;
         setError(err.message);
         setLoading(false);
         setChanged(false);
-      });
+      }
+    };
 
-    return () => controller.abort();
-  }, [selectedGenre, selectedPlatform, selectedOrder, search]);
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight
+      ) {
+        // Fetch more data when the bottom is reached
+        setPage((prevPage) => prevPage + 1);
+      }
+    };
 
-  return { games, error };
+    window.addEventListener("scroll", handleScroll);
+
+    // Initial load of data
+    fetchData(page);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      controller.abort();
+    };
+  }, [selectedGenre, selectedPlatform, selectedOrder, search, page]);
+
+  return { games, error, setPage, hasMore };
 };
 
 export default useGames;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import useGames from "../hooks/useGames";
 import Game from "./Game";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -12,8 +12,9 @@ const Games = ({
   selectedOrder,
   search,
 }) => {
+  const [end, setEnd] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { games, error } = useGames(
+  const { games, error, setPage, hasMore } = useGames(
     setLoading,
     selectedGenre,
     selectedPlatform,
@@ -22,6 +23,25 @@ const Games = ({
     search
   );
   const skeletons = Array(20).fill(1);
+
+  const observer = useRef();
+
+  const lastGameElementRef = useCallback(
+    (node) => {
+      if (loading) return; // Avoid unnecessary requests while still loading
+      if (observer.current) observer.current.disconnect();
+
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          setEnd(true);
+          setPage((prevPage) => prevPage + 1);
+        }
+      });
+
+      if (node) observer.current.observe(node);
+    },
+    [loading, setPage]
+  );
 
   if (error) return <h1>{error}</h1>;
 
@@ -42,12 +62,25 @@ const Games = ({
         </div>
       )}
       <div className="games-container">
-        {games.map((game) => (
-          <div key={game.id}>
-            <Game game={game} />
-          </div>
-        ))}
+        {games.map((game, index) => {
+          if (games.length === index + 1) {
+            // Set a ref to the last game element
+            return (
+              <div key={game.id} ref={lastGameElementRef}>
+                <Game game={game} />
+              </div>
+            );
+          } else {
+            return (
+              <div key={game.id}>
+                <Game game={game} />
+              </div>
+            );
+          }
+        })}
       </div>
+      {!hasMore && <div>No more games to load</div>}
+      {end && hasMore && <div class="loader"></div>}
     </div>
   );
 };
