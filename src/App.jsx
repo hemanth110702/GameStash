@@ -4,6 +4,7 @@ import Games from "./components/Games"
 import "./App.css"
 import SideBar from "./components/SideBar"
 import { useState } from "react"
+import { Route, Routes } from "react-router-dom"
 
 function App() {
 
@@ -16,9 +17,40 @@ function App() {
   return (
     <>
       <NavBar setSearch={setSearch} setChanged={setChanged} />
-      <SideBar changed={changed} setChanged={setChanged} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
-      <CategoryDisplay changed={changed} selectedGenre={selectedGenre} setChanged={setChanged} selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
-      <Games search={search} changed={changed} setChanged={setChanged} selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder}/>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <SideBar
+                changed={changed}
+                setChanged={setChanged}
+                selectedGenre={selectedGenre}
+                setSelectedGenre={setSelectedGenre}
+              />
+              <CategoryDisplay
+                changed={changed}
+                selectedGenre={selectedGenre}
+                setChanged={setChanged}
+                selectedPlatform={selectedPlatform}
+                setSelectedPlatform={setSelectedPlatform}
+                selectedOrder={selectedOrder}
+                setSelectedOrder={setSelectedOrder}
+              />
+              <Games
+                search={search}
+                changed={changed}
+                setChanged={setChanged}
+                selectedGenre={selectedGenre}
+                selectedPlatform={selectedPlatform}
+                selectedOrder={selectedOrder}
+                setSelectedOrder={setSelectedOrder}
+              />{" "}
+            </>
+          }
+        />
+        <Route path="/games/:id" element={<h1>GameDisplay <br /> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus rerum et blanditiis quidem error, impedit nobis velit repudiandae placeat adipisci.</h1>} />
+      </Routes>
     </>
   );
 }

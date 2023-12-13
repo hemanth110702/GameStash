@@ -3,7 +3,6 @@ body {
   padding: 0;
 }
 
-
 /*-- Navbar --------------------------------------------------------- */
 
 .navbar {
@@ -45,7 +44,7 @@ form > input {
   padding: 0;
 }
 
-.sidebar > ul > li > img{
+.sidebar > ul > li > img {
   width: 50px;
 }
 
@@ -86,7 +85,7 @@ form > input {
 
 .game-card > img {
   width: auto;
-  height: 200px; 
+  height: 200px;
   object-fit: cover;
 }
 
@@ -102,22 +101,24 @@ form > input {
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #000000; /* Blue */
+  border: 8px solid #000000; /* Light grey */
+  border-top: 8px solid #f3f3f3; /* Blue */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-
 @media (prefers-reduced-motion) {
-  
   .react-loading-skeleton {
     --pseudo-element-display: block;
   }
@@ -128,4 +129,3 @@ form > input {
   background-color: black;
   border: 1px solid white;
 }
-
