@@ -5,6 +5,7 @@ import "./App.css"
 import SideBar from "./components/SideBar"
 import { useState } from "react"
 import { Route, Routes } from "react-router-dom"
+import ErrorPage from "./components/ErrorPage"
 
 function App() {
 
@@ -50,7 +51,9 @@ function App() {
           }
         />
         <Route path="/games/:id" element={<h1>GameDisplay <br /> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus rerum et blanditiis quidem error, impedit nobis velit repudiandae placeat adipisci.</h1>} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
+      
     </>
   );
 }
