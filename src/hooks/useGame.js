@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import apiClient from "../services/apiClient"
 
-const useGame = (slug) => {
+const useGame = (url) => {
 
   const [gameDetails, setGameDetails] = useState("");
 
   const fetchGamesData = async () => {
-    const response = await apiClient.get(`/games/${slug}`);
+    const response = await apiClient.get(`/games/${url}`);
     setGameDetails(response.data);
   }
 

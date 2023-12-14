@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useGame from "../hooks/useGame";
 import ExpandableText from "./ExpandableText";
 import DefinitionItem from "./DefinitionItem";
+import GameTrailer from "./GameTrailer";
 
 const GameDisplay = () => {
   const data = useParams();
@@ -22,6 +23,7 @@ const GameDisplay = () => {
       <DefinitionItem term="Genres" items={genres} />
       <DefinitionItem term="Metascore" items={[gameData.metacritic]} />
       <DefinitionItem term="Publishers" items={[gameData.publishers[0].name]} />
+      <GameTrailer slug={data.slug} />
     </div>
   ); }
 };
