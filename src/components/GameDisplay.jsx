@@ -4,6 +4,7 @@ import useGame from "../hooks/useGame";
 import ExpandableText from "./ExpandableText";
 import DefinitionItem from "./DefinitionItem";
 import GameTrailer from "./GameTrailer";
+import GameScreenShots from "./GameScreenShots";
 
 const GameDisplay = () => {
   const data = useParams();
@@ -24,6 +25,7 @@ const GameDisplay = () => {
       <DefinitionItem term="Metascore" items={[gameData.metacritic]} />
       <DefinitionItem term="Publishers" items={[gameData.publishers[0].name]} />
       <GameTrailer slug={data.slug} />
+      <GameScreenShots slug={data.slug} />
     </div>
   ); }
 };
