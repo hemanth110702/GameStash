@@ -1,15 +1,25 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const ExpandableText = ({description}) => {
+const ExpandableText = ({ description }) => {
   const [expandableText, setExpandableText] = useState(false);
-  const limit = 300;
-  const summary = (expandableText === false)?description.slice(0,300) + "..." : description;
+  if (description) {
+    const limit = 300;
+    const summary =
+      expandableText === false
+        ? description.slice(0, 300) + "..."
+        : description;
 
-  if( description.length <= 300) return <div>{description}</div>
+    if (description.length <= 300) return <div>{description}</div>;
 
-  return (
-    <div>{summary}<button onClick={() => setExpandableText(!expandableText)}>{expandableText? "Show Less" : "Show More"}</button></div>
-  )
-}
+    return (
+      <div>
+        {summary}
+        <button onClick={() => setExpandableText(!expandableText)}>
+          {expandableText ? "Show Less" : "Show More"}
+        </button>
+      </div>
+    );
+  }
+};
 
-export default ExpandableText
+export default ExpandableText;

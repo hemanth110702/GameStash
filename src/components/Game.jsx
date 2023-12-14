@@ -6,7 +6,6 @@ import getOptimizedImage from "../services/image-url";
 import Emoji from "./Emoji";
 import { Link } from "react-router-dom";
 
-
 const Game = ({ game }) => {
    console.log(game);
   return (
