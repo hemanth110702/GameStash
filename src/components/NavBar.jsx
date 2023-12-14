@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
 
-const NavBar = ({setSearch, setChanged}) => {
+const NavBar = ({ setSearch, setChanged }) => {
   return (
     <div className="navbar">
       <div className="navbar-section">
-        <h1>GameStash</h1>
-        <SearchInput setSearch={setSearch} setChanged={setChanged}/>
+        <h1>
+          <Link to="/">GameStash</Link>
+        </h1>
+        <SearchInput setSearch={setSearch} setChanged={setChanged} />
         <div>
           theme <br /> switched
         </div>
