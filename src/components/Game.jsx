@@ -4,6 +4,7 @@ import CriticScore from "./CriticScore";
 import ReleaseDate from "./ReleaseDate";
 import getOptimizedImage from "../services/image-url";
 import Emoji from "./Emoji";
+import { Link } from "react-router-dom";
 
 
 const Game = ({ game }) => {
@@ -12,10 +13,12 @@ const Game = ({ game }) => {
     <div className="game-card">
       <img src={getOptimizedImage(game.background_image)} alt="game" />
       <PlatformIconList key={game.slug} platforms={game.parent_platforms} />
-      <h1>{game.name}</h1>
-      <CriticScore metacritic={game.metacritic}/>
+      <h1>
+        <Link to={`/games/${game.slug}`}>{game.name}</Link>
+      </h1>
+      <CriticScore metacritic={game.metacritic} />
       <ReleaseDate release={game.released} />
-      <Emoji ratingTop = {game.rating_top}/>
+      <Emoji ratingTop={game.rating_top} />
     </div>
   );
 };

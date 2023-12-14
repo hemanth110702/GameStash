@@ -6,6 +6,7 @@ import SideBar from "./components/SideBar"
 import { useState } from "react"
 import { Route, Routes } from "react-router-dom"
 import ErrorPage from "./components/ErrorPage"
+import GameDisplay from "./components/GameDisplay"
 
 function App() {
 
@@ -50,8 +51,11 @@ function App() {
             </>
           }
         />
-        <Route path="/games/:id" element={<h1>GameDisplay <br /> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus rerum et blanditiis quidem error, impedit nobis velit repudiandae placeat adipisci.</h1>} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="/games" >
+          <Route path=":slug" element={<GameDisplay /> } />
+          <Route path="*" element={<ErrorPage /> } />
+        </Route>
+
       </Routes>
       
     </>
