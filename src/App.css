@@ -1,6 +1,14 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(13, 13, 13);
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 
 /*-- Navbar --------------------------------------------------------- */
@@ -8,7 +16,11 @@ body {
 .navbar {
   width: 100%;
   position: fixed;
-  background-color: red;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 999;
 }
 
 .navbar-section {
@@ -19,6 +31,17 @@ body {
 
 .navbar-section > h1 {
   margin: 0;
+  font-family: "Lilita One", sans-serif;
+}
+
+.my-games {
+  align-self: center;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.my-games > img {
+  width: 32px;
 }
 
 form {
@@ -28,32 +51,167 @@ form {
 form > input {
   width: 100%;
 }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 /* Sidebar ------------------------------------------------- */
 
 .sidebar {
   position: fixed;
-  margin-top: 37.5px;
+  margin-top: 60px;
   width: 150px;
-  height: 100vh;
+  height: 90vh;
   overflow-y: scroll;
-  background-color: red;
+  padding-left: 20px;
+}
+
+.sidebar > h1 {
+  margin-top: 0;
+  font-family: "Russo One", sans-serif;
+  font-size: 1.5rem;
 }
 
 .sidebar > ul {
   margin: 0;
   padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-right: 10px;
+}
+
+.sidebar > ul > li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sidebar > ul > li > button {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 300;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar > ul > li > button:hover {
+  font-weight: 700;
 }
 
 .sidebar > ul > li > img {
-  width: 50px;
+  object-fit: cover;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+/* Handle */
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #888;
+}
+
+/* Handle on hover */
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /*-- Category Display ----------------------------------------------------------- */
 
 .category {
-  background-color: green;
-  padding-top: 50px;
-  padding-left: 180px;
+  padding-top: 40px;
+  margin-left: 210px;
+}
+
+.category > h1 {
+  font-family: "Russo One", sans-serif;
+  font-size: 3rem;
+}
+
+select {
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+/* Focus effect */
+select:focus {
+  border-color: #4a90e2; /* Adjust the color as needed */
 }
 
 /*-- Games --------------------------------------------------------------------- */
@@ -70,17 +228,21 @@ form > input {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 30px;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .game-card {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
   width: 300px;
   height: fit-content;
   border-radius: 10px;
   overflow: hidden;
+  transition: transform 0.25s;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
 }
 
 .game-card > img {
@@ -89,15 +251,48 @@ form > input {
   object-fit: cover;
 }
 
-.game-card > h1 {
-  margin: 0;
-  font-size: 1.5rem;
+.game-description {
+  padding: 10px;
+  background-color: rgb(20, 20, 20);
 }
 
-.game-card > .emoji {
+.game-card > .game-description > h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: Helvetica, sans-serif;
+}
+
+.game-card > .game-description > .card-bottom > .emoji {
   width: 50px;
   object-fit: contain;
   height: fit-content;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platNScore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platform-list {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0.2rem;
+}
+
+.card-bottom > button > img {
+  width: 32px;
+}
+
+.game-description > .release-date {
+  font-family: "Josefin Sans", sans-serif;
+  margin: 10px 0;
 }
 
 .loader {
@@ -128,4 +323,25 @@ form > input {
   width: 300px;
   background-color: black;
   border: 1px solid white;
+}
+
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

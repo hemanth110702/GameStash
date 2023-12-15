@@ -23,11 +23,11 @@ const PlatformIconList = ({ platforms }) => {
     web: BsGlobe,
   };
   return (
-    <div>
+    <div className="platform-list">
       {platforms.map(({ platform }, index) => {
         const IconComponent = iconMap[platform.slug] || '';
         if(IconComponent === '')return ;
-        return <IconComponent key={index} size={32} />;
+        return <IconComponent key={index} size={13} />;
       })}
     </div>
   );

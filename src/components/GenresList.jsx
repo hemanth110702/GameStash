@@ -6,11 +6,18 @@ const GenresList = ({ selectedGenre, setSelectedGenre }) => {
   return (
     <ul>
       {genres.map((genre) => (
-        <li key={genre.id}>
+        <li
+          key={genre.id}
+          style={{
+            borderRadius: selectedGenre?.id === genre.id ? "8px" : "",
+            backgroundColor:
+              selectedGenre?.id === genre.id ? "rgba(255, 255, 255, 0.21)" : "",
+          }}
+        >
           <img src={getOptimizedImage(genre.image_background)} alt="" />
           <button
             style={{
-              backgroundColor: selectedGenre?.id === genre.id ? "blue" : "",
+              fontWeight: selectedGenre?.id === genre.id ? "700" : "",
             }}
             onClick={() => setSelectedGenre(genre)}
           >

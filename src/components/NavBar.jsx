@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
+import love from "../assets/love.png"
 
 const NavBar = ({ setSearch, setChanged }) => {
   return (
@@ -9,10 +10,14 @@ const NavBar = ({ setSearch, setChanged }) => {
           <Link to="/">GameStash</Link>
         </h1>
         <SearchInput setSearch={setSearch} setChanged={setChanged} />
-        <div>
-          theme <br /> switched
-        </div>
-        <div>
+
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+
+        <div className="my-games">
+          <img src={love} alt="" />
           <Link to="/myGames">My Games</Link>{" "}
         </div>
       </div>

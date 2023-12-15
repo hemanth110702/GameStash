@@ -1,13 +1,13 @@
 import NavBar from "./components/NavBar";
 import CategoryDisplay from "./components/CategoryDisplay";
 import Games from "./components/Games";
-import "./App.css";
 import SideBar from "./components/SideBar";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import GameDisplay from "./components/GameDisplay";
 import MyGames from "./components/MyGames";
+import "./App.css";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState(null);
@@ -66,7 +66,12 @@ function App() {
           <Route path=":slug" element={<GameDisplay />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route path="/myGames" element={<MyGames likedGames={likedGames} setLikedGames={setLikedGames} />} />
+        <Route
+          path="/myGames"
+          element={
+            <MyGames likedGames={likedGames} setLikedGames={setLikedGames} />
+          }
+        />
       </Routes>
     </>
   );

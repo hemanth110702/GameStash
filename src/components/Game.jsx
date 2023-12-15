@@ -12,14 +12,20 @@ const Game = ({ game, likedGames,setLikedGames }) => {
   return (
     <div className="game-card">
       <img src={getOptimizedImage(game.background_image)} alt="game" />
-      <PlatformIconList key={game.slug} platforms={game.parent_platforms} />
-      <h1>
-        <Link to={`/games/${game.slug}`}>{game.name}</Link>
-      </h1>
-      <CriticScore metacritic={game.metacritic} />
-      <ReleaseDate release={game.released} />
-      <Emoji ratingTop={game.rating_top} />
-      <Collection game={game} likedGames={likedGames} setLikedGames={setLikedGames}/>
+      <div className="game-description">
+        <div className="platNScore">
+          <PlatformIconList key={game.slug} platforms={game.parent_platforms} />
+          <CriticScore metacritic={game.metacritic} />
+        </div>
+          <h1>
+          <Link to={`/games/${game.slug}`}>{game.name}</Link>
+        </h1>
+        <ReleaseDate release={game.released} />
+        <div className="card-bottom">
+          <Emoji ratingTop={game.rating_top} />
+          <Collection game={game} likedGames={likedGames} setLikedGames={setLikedGames}/>
+        </div>
+      </div>
       
     </div>
   );

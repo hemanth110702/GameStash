@@ -11,7 +11,7 @@ const PlatformSelector = ({setChanged,selectedPlatform,setSelectedPlatform}) => 
   }
 
   return (
-    <select name="platform" id="pf" onChange={handlePlatform}>
+    <select className="platform-selector" name="platform" id="pf" onChange={handlePlatform}>
       <option value="Platform" >
         {selectedPlatform?.name || 'Platform'}
       </option>
