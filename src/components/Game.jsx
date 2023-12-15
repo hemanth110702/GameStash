@@ -5,8 +5,9 @@ import ReleaseDate from "./ReleaseDate";
 import getOptimizedImage from "../services/image-url";
 import Emoji from "./Emoji";
 import { Link } from "react-router-dom";
+import Collection from "./Collection";
 
-const Game = ({ game }) => {
+const Game = ({ game, likedGames,setLikedGames }) => {
    console.log(game);
   return (
     <div className="game-card">
@@ -18,6 +19,8 @@ const Game = ({ game }) => {
       <CriticScore metacritic={game.metacritic} />
       <ReleaseDate release={game.released} />
       <Emoji ratingTop={game.rating_top} />
+      <Collection game={game} likedGames={likedGames} setLikedGames={setLikedGames}/>
+      
     </div>
   );
 };

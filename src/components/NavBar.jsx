@@ -12,8 +12,9 @@ const NavBar = ({ setSearch, setChanged }) => {
         <div>
           theme <br /> switched
         </div>
-        <div>Collect</div>
-        <div>try later</div>
+        <div>
+          <Link to="/myGames">My Games</Link>{" "}
+        </div>
       </div>
     </div>
   );

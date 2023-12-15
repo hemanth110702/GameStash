@@ -11,6 +11,8 @@ const Games = ({
   selectedPlatform,
   selectedOrder,
   search,
+  likedGames,
+  setLikedGames,
 }) => {
   const [end, setEnd] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -67,13 +69,21 @@ const Games = ({
             // Set a ref to the last game element
             return (
               <div key={game.id} ref={lastGameElementRef}>
-                <Game game={game} />
+                <Game
+                  game={game}
+                  likedGames={likedGames}
+                  setLikedGames={setLikedGames}
+                />
               </div>
             );
           } else {
             return (
               <div key={game.id}>
-                <Game game={game} />
+                <Game
+                  game={game}
+                  likedGames={likedGames}
+                  setLikedGames={setLikedGames}
+                />
               </div>
             );
           }
