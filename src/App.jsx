@@ -14,6 +14,7 @@ function App() {
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [search, setSearch] = useState("");
+  const [darkTheme, setDarkTheme] = useState(true);
   const [changed, setChanged] = useState(false);
   const likedGamesJSON = localStorage.getItem("likedGames");
   const [likedGames, setLikedGames] = useState(
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <>
-      <NavBar setSearch={setSearch} setChanged={setChanged} />
+      <NavBar setSearch={setSearch} setChanged={setChanged} darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
       <Routes>
         <Route
           path="/"
