@@ -27,7 +27,7 @@ function App() {
   }, [likedGames]);
 
   return (
-    <>
+    <div className={darkTheme?"page":"light-page"}>
       <NavBar setSearch={setSearch} setChanged={setChanged} darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
       <Routes>
         <Route
@@ -39,6 +39,7 @@ function App() {
                 setChanged={setChanged}
                 selectedGenre={selectedGenre}
                 setSelectedGenre={setSelectedGenre}
+                darkTheme={darkTheme}
               />
               <CategoryDisplay
                 changed={changed}
@@ -48,6 +49,7 @@ function App() {
                 setSelectedPlatform={setSelectedPlatform}
                 selectedOrder={selectedOrder}
                 setSelectedOrder={setSelectedOrder}
+                darkTheme={darkTheme}
               />
               <Games
                 search={search}
@@ -59,6 +61,7 @@ function App() {
                 setSelectedOrder={setSelectedOrder}
                 likedGames={likedGames}
                 setLikedGames={setLikedGames}
+                darkTheme={darkTheme}
               />{" "}
             </>
           }
@@ -70,11 +73,11 @@ function App() {
         <Route
           path="/myGames"
           element={
-            <MyGames likedGames={likedGames} setLikedGames={setLikedGames} />
+            <MyGames likedGames={likedGames} setLikedGames={setLikedGames} darkTheme={darkTheme}/>
           }
         />
       </Routes>
-    </>
+    </div>
   );
 }
 

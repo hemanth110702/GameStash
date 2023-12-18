@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Game from "./Game";
 
-const MyGames = ({ likedGames, setLikedGames }) => {
+const MyGames = ({ likedGames, setLikedGames, darkTheme }) => {
   if (likedGames) {
     return (
-      <div className="my-games-page">
+      <div className={darkTheme?"my-games-page":"light-my-games-page"}>
         <h1>Liked Games</h1>
         <div className="my-games-games">
           {likedGames.map((game) => {
@@ -13,6 +13,7 @@ const MyGames = ({ likedGames, setLikedGames }) => {
                 game={game}
                 likedGames={likedGames}
                 setLikedGames={setLikedGames}
+                darkTheme={darkTheme}
               />
             );
           })}

@@ -8,14 +8,17 @@ const Theme = ({ darkTheme, setDarkTheme }) => {
   };
 
   return (
-    <label class="switch">
-      <input
-        type="checkbox"
-        onChange={handleThemeChange}
-        defaultChecked={darkTheme}
-      />
-      <span class="slider round"></span>
-    </label>
+    <div className={darkTheme?"themes":"light-themes"}>
+      <label class="switch">
+        <input
+          type="checkbox"
+          onChange={handleThemeChange}
+          defaultChecked={darkTheme}
+        />
+        <span class="slider round"></span>
+      </label>
+        Dark Theme
+    </div>
   );
 };
 

@@ -13,6 +13,7 @@ const Games = ({
   search,
   likedGames,
   setLikedGames,
+  darkTheme
 }) => {
   const [end, setEnd] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -73,6 +74,7 @@ const Games = ({
                   game={game}
                   likedGames={likedGames}
                   setLikedGames={setLikedGames}
+                  darkTheme={darkTheme}
                 />
               </div>
             );
@@ -83,6 +85,7 @@ const Games = ({
                   game={game}
                   likedGames={likedGames}
                   setLikedGames={setLikedGames}
+                  darkTheme={darkTheme}
                 />
               </div>
             );

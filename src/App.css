@@ -1,16 +1,24 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(13, 13, 13);
-  color: white;
   font-family: "Bebas Neue", sans-serif;
 }
 
-a {
+.page {
+  background-color: rgb(13, 13, 13);
+  color: white;
+}
+
+.light-page {
+  background-color: rgb(246, 246, 246);
+  color: white;
+}
+
+/* a {
   color: white;
   text-decoration: none;
 }
-
+ */
 /*-- Navbar --------------------------------------------------------- */
 
 .navbar {
@@ -23,11 +31,29 @@ a {
   z-index: 999;
 }
 
+.light-navbar {
+  width: 100%;
+  position: fixed;
+  padding: 10px;
+  background-color: white;
+  z-index: 999;
+}
+
 .navbar-section {
   display: grid;
   grid-template-columns: 0.3fr 1.4fr 0.3fr 0.2fr 0.2fr;
-  gap: 1rem;  
+  gap: 1rem;
   align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.light-navbar a {
+  color: black;
+  text-decoration: none;
 }
 
 .navbar-section > h1 {
@@ -43,7 +69,8 @@ a {
   padding: 8px 15px;
 }
 
-.my-games {
+.my-games,
+.light-my-games {
   align-self: center;
   font-size: 1.5rem;
   display: flex;
@@ -51,12 +78,23 @@ a {
 
 .my-games > a {
   display: flex;
-}
-.my-games > a:hover {
- border-bottom: 2px solid rgba(253, 99, 99, 0.5);
+  color: white;
+  text-decoration: none;
 }
 
-.my-games> a  > img {
+.light-my-games > a {
+  display: flex;
+  color: black;
+  text-decoration: none;
+}
+
+.my-games > a:hover,
+.light-my-games > a:hover {
+  border-bottom: 2px solid rgba(253, 99, 99, 0.5);
+}
+
+.my-games > a > img,
+.light-my-games > a > img {
   width: 32px;
 }
 
@@ -73,6 +111,7 @@ form > input {
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin-right: 5px;
 }
 
 .switch input {
@@ -128,9 +167,31 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.light-search-input {
+  background-color: rgb(173, 165, 165);
+  color: black;
+}
+
+.light-search-input::placeholder {
+  color: white;
+}
+
+.themes,
+.light-themes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.light-themes {
+  color: black;
+}
+
 /* Sidebar ------------------------------------------------- */
 
-.sidebar {
+.sidebar,
+.light-sidebar {
   position: fixed;
   margin-top: 60px;
   width: 150px;
@@ -139,13 +200,19 @@ input:checked + .slider:before {
   padding-left: 20px;
 }
 
-.sidebar > h1 {
+.sidebar > h1,
+.light-sidebar > h1 {
   margin-top: 0;
   font-family: "Russo One", sans-serif;
   font-size: 1.5rem;
 }
 
-.sidebar > ul {
+.light-sidebar > h1 {
+  color: black;
+}
+
+.sidebar > ul,
+.light-sidebar > ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -155,26 +222,37 @@ input:checked + .slider:before {
   margin-right: 10px;
 }
 
-.sidebar > ul > li {
+.sidebar > ul > li,
+.light-sidebar > ul > li {
   display: flex;
   gap: 0.5rem;
 }
 
-.sidebar > ul > li > button {
+.sidebar > ul > li > button,
+.light-sidebar > ul > li > button {
   font-family: "Lexend Deca", sans-serif;
   font-weight: 300;
   background: transparent;
-  color: white;
   border: none;
   cursor: pointer;
   text-align: left;
 }
 
-.sidebar > ul > li > button:hover {
+.sidebar > ul > li > button {
+  color: white;
+}
+
+.light-sidebar > ul > li > button {
+  color: black;
+}
+
+.sidebar > ul > li > button:hover,
+.light-sidebar > ul > li > button:hover {
   font-weight: 700;
 }
 
-.sidebar > ul > li > img {
+.sidebar > ul > li > img,
+.light-sidebar > ul > li > img {
   object-fit: cover;
   width: 32px;
   height: 32px;
@@ -186,30 +264,39 @@ input:checked + .slider:before {
 }
 
 /* Track */
-.sidebar::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track,
+.light-sidebar::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 4px;
 }
 
 /* Handle */
-.sidebar::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb,
+.light-sidebar::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background: #888;
 }
 
 /* Handle on hover */
-.sidebar::-webkit-scrollbar-thumb:hover {
+.sidebar::-webkit-scrollbar-thumb:hover,
+.light-sidebar::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
 /*-- Category Display ----------------------------------------------------------- */
 
-.category {
+.category,
+.light-category {
   padding-top: 40px;
   margin-left: 210px;
 }
 
-.category > h1 {
+.light-category > h1 {
+  color: black;
+}
+
+.category > h1,
+.light-category > h1 {
   font-family: "Russo One", sans-serif;
   font-size: 3rem;
 }
@@ -247,7 +334,8 @@ select:focus {
   gap: 1.5rem;
 }
 
-.game-card {
+.game-card,
+.light-game-card {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -257,11 +345,23 @@ select:focus {
   transition: transform 0.25s;
 }
 
-.game-card:hover {
+.game-description > h1 > a {
+  color: white;
+  text-decoration: none;
+}
+
+.light-game-description > h1 > a {
+  color: black;
+  text-decoration: none;
+}
+
+.game-card:hover,
+.light-game-card:hover {
   transform: scale(1.05);
 }
 
-.game-card > img {
+.game-card > img,
+.light-game-card > img {
   width: auto;
   height: 200px;
   object-fit: cover;
@@ -272,19 +372,27 @@ select:focus {
   background-color: rgb(20, 20, 20);
 }
 
-.game-card > .game-description > h1 {
+.light-game-description {
+  padding: 10px;
+  background-color: #a4a4a4;
+}
+
+.game-card > .game-description > h1,
+.light-game-card > .light-game-description > h1 {
   margin: 0;
   font-size: 1.5rem;
   font-family: Helvetica, sans-serif;
 }
 
-.game-card > .game-description > .card-bottom > .emoji {
+.game-card > .game-description > .card-bottom > .emoji,
+.light-game-card > .light-game-description > .light-card-bottom > .emoji {
   width: 50px;
   object-fit: contain;
   height: fit-content;
 }
 
-.card-bottom {
+.card-bottom,
+.light-card-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -302,13 +410,19 @@ select:focus {
   margin: 0.5rem 0.2rem;
 }
 
-.card-bottom > button > img {
+.card-bottom > button > img,
+.light-card-bottom > button > img {
   width: 32px;
 }
 
-.game-description > .release-date {
+.game-description > .release-date,
+.light-game-description > .release-date {
   font-family: "Josefin Sans", sans-serif;
   margin: 10px 0;
+}
+
+.light-game-description > .release-date {
+  color: black;
 }
 
 .loader {
@@ -322,7 +436,8 @@ select:focus {
 
 /* My games page ------------------------------------------------------ */
 
-.my-games-page {
+.my-games-page,
+.light-my-games-page {
   padding-top: 50px;
   padding-bottom: 50px;
   display: flex;
@@ -331,21 +446,28 @@ select:focus {
   align-items: center;
 }
 
-.my-games-page > button {
+.my-games-page > button,
+.light-my-games-page > button {
   padding: 10px 15px;
   border-radius: 18px;
   background-color: rgb(0, 145, 255);
   border: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   cursor: pointer;
   font-size: 1rem;
   transition: box-shadow 0.3s;
 }
 
-.my-games-page > button:hover {
-  box-shadow: 0 2px 10px rgb(0, 179, 255);
+.my-games-page > button > a,
+.light-my-games-page > button > a {
+  text-decoration: none;
+  color: black;
 }
 
+.my-games-page > button:hover,
+.light-my-games-page > button:hover {
+  box-shadow: 0 2px 10px rgb(0, 179, 255);
+}
 
 .my-games-games {
   display: grid;
@@ -353,18 +475,14 @@ select:focus {
   gap: 1.5rem;
 }
 
-.my-games-page > h1 {
-  font-family: 'Francois One', sans-serif;
+.my-games-page > h1,
+.light-my-games-page > h1 {
+  font-family: "Francois One", sans-serif;
 }
 
-
-
-
-
-
-
-
-
+.light-my-games-page > h1 {
+  color: black;
+}
 
 @keyframes spin {
   0% {

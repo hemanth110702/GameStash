@@ -5,14 +5,14 @@ import Theme from "./Theme";
 
 const NavBar = ({ setSearch, setChanged, darkTheme, setDarkTheme }) => {
   return (
-    <div className="navbar">
+    <div className={darkTheme?"navbar": "light-navbar"}>
       <div className="navbar-section">
         <h1>
           <Link to="/">GameStash</Link>
         </h1>
-        <SearchInput setSearch={setSearch} setChanged={setChanged} />
+        <SearchInput setSearch={setSearch} setChanged={setChanged} darkTheme={darkTheme}/>
         <Theme darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-        <div className="my-games">
+        <div className={darkTheme?"my-games":"light-my-games"}>
           <Link to="/myGames">
             <img  src={love} alt="" />
             My Games
