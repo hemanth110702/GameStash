@@ -18,7 +18,14 @@ const OrderBySelector = ({setSelectedOrder}) => {
 
   return (
     <select name="orderBy" id="order" onChange={handleOrderBy}>
-      {orders.map(order => <option key={order.value} value={order.value}>{order.label}</option>)}
+      <option key="orderBy" value="order by" disabled selected>
+        Order By
+      </option>
+      {orders.map((order) => (
+        <option key={order.value} value={order.value}>
+          {order.label}
+        </option>
+      ))}
     </select>
   );
 }
