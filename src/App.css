@@ -168,7 +168,7 @@ input:checked + .slider:before {
 }
 
 .light-search-input {
-  background-color: rgb(173, 165, 165);
+  background-color: rgb(182, 182, 182);
   color: black;
 }
 
@@ -225,30 +225,34 @@ input:checked + .slider:before {
 .sidebar > ul > li,
 .light-sidebar > ul > li {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
 
-.sidebar > ul > li > button,
-.light-sidebar > ul > li > button {
+.sidebar > ul > li > p,
+.light-sidebar > ul > li > p {
   font-family: "Lexend Deca", sans-serif;
   font-weight: 300;
   background: transparent;
   border: none;
   cursor: pointer;
   text-align: left;
+  margin: 0;
 }
 
-.sidebar > ul > li > button {
+.sidebar > ul > li > p {
   color: white;
 }
 
-.light-sidebar > ul > li > button {
+.light-sidebar > ul > li > p {
   color: black;
 }
 
-.sidebar > ul > li > button:hover,
-.light-sidebar > ul > li > button:hover {
+.sidebar > ul > li:hover,
+.light-sidebar > ul > li:hover {
   font-weight: 700;
+  transform: scale(1.05);
 }
 
 .sidebar > ul > li > img,
@@ -264,10 +268,15 @@ input:checked + .slider:before {
 }
 
 /* Track */
-.sidebar::-webkit-scrollbar-track,
-.light-sidebar::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track{
   background: #f1f1f1;
   border-radius: 4px;
+}
+
+.light-sidebar::-webkit-scrollbar-track {
+  background: rgb(205, 205, 205);
+  border-radius: 4px;
+
 }
 
 /* Handle */
@@ -374,7 +383,7 @@ select:focus {
 
 .light-game-description {
   padding: 10px;
-  background-color: #a4a4a4;
+  background-color: #9f9e9e;
 }
 
 .game-card > .game-description > h1,
