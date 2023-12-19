@@ -7,7 +7,7 @@ const GenresList = ({ selectedGenre, setSelectedGenre, darkTheme }) => {
     <ul>
       {genres.map((genre) => (
         <li
-          onClick={() => setSelectedGenre(genre)}
+          onClick={() => setSelectedGenre(() => genre)}
           key={genre.id}
           style={{
             borderRadius: selectedGenre?.id === genre.id ? "8px" : "",

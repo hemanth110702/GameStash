@@ -12,7 +12,7 @@ body {
 .light-page {
   background-color: rgb(246, 246, 246);
   color: white;
-}    
+}
 
 /* a {
   color: white;
@@ -270,7 +270,7 @@ input:checked + .slider:before {
 }
 
 /* Track */
-.sidebar::-webkit-scrollbar-track{
+.sidebar::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 4px;
 }
@@ -278,7 +278,6 @@ input:checked + .slider:before {
 .light-sidebar::-webkit-scrollbar-track {
   background: rgb(205, 205, 205);
   border-radius: 4px;
-
 }
 
 /* Handle */
@@ -340,7 +339,7 @@ select:focus {
 
 .games-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 30px;
   gap: 1.5rem;
 }
@@ -504,6 +503,82 @@ select:focus {
   color: black;
 }
 
+/* game-display ------------------------------------------------- */
+
+.game-display,
+.light-game-display {
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.game-display > div > h1 {
+  margin: 0;
+  color: white;
+  font-family: "Russo One", sans-serif;
+}
+
+.light-game-display > div > h1 {
+  color: black;
+}
+
+.game-display > div > p,
+.light-game-display > div > p {
+  font-family: "Francois One";
+  padding: 10px;
+  font-size: 1rem;
+  color: silver;
+}
+
+.game-display > div > p > button,
+.light-game-display > div > p > button {
+  background-color: rgb(102, 102, 102);
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.game-display > div > p > button:hover,
+.light-game-display > div > p > button:hover {
+  background-color: silver;
+  font-weight: bold;
+  color: black;
+}
+
+.df-items {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 1rem;
+  row-gap: 1rem;
+}
+
+.df-item > dt {
+  font-family: "Russo One", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.df-item > dd {
+  font-family: "Francois One";
+  color: silver;
+}
+
+.game-trailer > video {
+  max-width: 730px;
+}
+
+.game-ss > div {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0.5rem;
+}
+
+.game-ss > div > img {
+  width: auto;
+  height: 200px;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -544,4 +619,68 @@ select:focus {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* media queries -------------------------------- */
+
+@media screen and (max-width: 2150px) {
+  .games-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1850px) {
+  .games-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .games-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .navbar-section {
+    grid-template-columns: 0.3fr 1fr 0.3fr 0.2fr;
+  }
+}
+
+@media screen and (max-width: 1155px) {
+  .games-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .navbar-section {
+    grid-template-columns: 0.3fr 0.5fr 0.3fr 0.3fr;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .games-container {
+    grid-template-columns: 1fr;
+  }
+  .navbar-section {
+    grid-template-columns: 0.3fr 0.5fr 0.3fr;
+  }
+  .themes {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .navbar-section {
+    grid-template-columns: 1fr 0fr 1fr;
+    justify-content: flex-end;
+  }
+  .navbar-section > form > input {
+    display: none;
+  }
+  .my-games {
+    justify-self: flex-end;
+    align-items: end;
+    align-self: flex-end;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 525px) {
+
 }

@@ -1,7 +1,7 @@
 
 const DefinitionItem = ({term, items}) => {
   return (
-    <div>
+    <div className="df-item">
       <dt>
         {term}
       </dt>

@@ -41,7 +41,7 @@ const useGames = (
           setHasMore(false);
         }
 
-        setGames((prevGames) => [...prevGames, ...newGames]);
+        setGames([...newGames]);
         setLoading(false);
         setChanged(false);
       } catch (err) {
@@ -51,7 +51,6 @@ const useGames = (
         setChanged(false);
       }
     };
-
     const handleScroll = () => {
       if (
         window.innerHeight + document.documentElement.scrollTop ===

@@ -12,12 +12,12 @@ const ExpandableText = ({ description }) => {
     if (description.length <= 300) return <div>{description}</div>;
 
     return (
-      <div>
+      <p>
         {summary}
         <button onClick={() => setExpandableText(!expandableText)}>
-          {expandableText ? "Show Less" : "Show More"}
+          {expandableText ? "Show Less" : "Read More"}
         </button>
-      </div>
+      </p>
     );
   }
 };
