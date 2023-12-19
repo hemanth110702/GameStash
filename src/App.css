@@ -12,7 +12,7 @@ body {
 .light-page {
   background-color: rgb(246, 246, 246);
   color: white;
-}
+}    
 
 /* a {
   color: white;
@@ -417,6 +417,15 @@ select:focus {
   display: flex;
   gap: 0.5rem;
   margin: 0.5rem 0.2rem;
+}
+
+.critic-score {
+  background-color: black;
+  width: 25px;
+  display: flex;git st
+  border-radius: 5px;
+  justify-content: center;
+  font-size: 1.2rem;
 }
 
 .card-bottom > button > img,

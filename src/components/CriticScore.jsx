@@ -5,7 +5,7 @@ const CriticScore = ({ metacritic }) => {
       : (metacritic > 50 && metacritic <= 75)
       ? "yellow"
       : "green";
-  return <div style={{color: textColor, backgroundColor: "black", fontSize: "1.2rem"}}>
+  return <div className="critic-score" style={{color: textColor,}}>
     {metacritic}
   </div>;
 };
