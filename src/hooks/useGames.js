@@ -71,6 +71,7 @@ const useGames = (
   useEffect(() => {
     const controller = new AbortController();
     setChanged(true);
+    setLoading(true);
 
     const fetchData = async (pageNumber) => {
       try {
@@ -95,12 +96,14 @@ const useGames = (
         setGames([...newGames]);
         setLoading(false);
         setChanged(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } catch (err) {
         if (err instanceof CanceledError) return;
         setError(err.message);
         setLoading(false);
         setChanged(false);
       }
+      
     };
     const handleScroll = () => {
       if (

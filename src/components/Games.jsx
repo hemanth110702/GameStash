@@ -4,6 +4,8 @@ import Game from "./Game";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+// ... (imports)
+
 const Games = ({
   changed,
   setChanged,
@@ -15,10 +17,11 @@ const Games = ({
   setLikedGames,
   darkTheme
 }) => {
+  const [loadingInitial, setLoadingInitial] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [end, setEnd] = useState(false);
-  const [loading, setLoading] = useState(true);
   const { games, error, setPage, hasMore } = useGames(
-    setLoading,
+    setLoadingInitial,
     selectedGenre,
     selectedPlatform,
     setChanged,
@@ -31,26 +34,28 @@ const Games = ({
 
   const lastGameElementRef = useCallback(
     (node) => {
-      if (loading) return; // Avoid unnecessary requests while still loading
+      if (loadingMore || loadingInitial) return;
+
       if (observer.current) observer.current.disconnect();
 
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           setEnd(true);
+          setLoadingMore(true);
           setPage((prevPage) => prevPage + 1);
         }
       });
 
       if (node) observer.current.observe(node);
     },
-    [loading, setPage]
+    [loadingMore, loadingInitial, setPage]
   );
 
   if (error) return <h1>{error}</h1>;
 
   return (
     <div className="games">
-      {(loading || changed) && (
+      {loadingInitial && (
         <div className="games-container">
           {skeletons.map((_, index) => (
             <div key={index}>
@@ -67,7 +72,6 @@ const Games = ({
       <div className="games-container">
         {games.map((game, index) => {
           if (games.length === index + 1) {
-            // Set a ref to the last game element
             return (
               <div key={game.id} ref={lastGameElementRef}>
                 <Game
