@@ -20,7 +20,7 @@ const GameDisplay = ({darkTheme}) => {
         <div>
           <h1>{gameData.name}</h1>
           <ExpandableText description={gameData.description_raw} />
-          <div className="df-items">
+          <div className={darkTheme?"df-items":"light-df-items"}>
             <DefinitionItem term="Platform" items={platforms}  />
             <DefinitionItem term="Genres" items={genres} />
             <DefinitionItem term="Metascore" items={[gameData.metacritic]} />
@@ -31,10 +31,10 @@ const GameDisplay = ({darkTheme}) => {
           </div>
         </div>
         <div>
-          <div className={darkTheme ? "game-trailer" : "light-game-trailer"}>
+          <div className={"game-trailer"}>
             <GameTrailer slug={data.slug} />
           </div>
-          <div className={darkTheme ? "game-ss" : "light-game-ss"}>
+          <div className={"game-ss"}>
             <GameScreenShots slug={data.slug} />
           </div>
         </div>

@@ -93,7 +93,7 @@ const Games = ({
         })}
       </div>
       {!hasMore && <div>No more games to load</div>}
-      {end && hasMore && <div class="loader"></div>}
+      {end && hasMore && <div className={darkTheme?"light-loader":"loader"}></div>}
     </div>
   );
 };

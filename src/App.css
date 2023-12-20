@@ -1,7 +1,18 @@
+:root {
+  --ff-anton: "Anton", sans-serif;
+  --ff-archivo: "Archivo Black", sans-serif;
+  --ff-bebas: "Bebas Neue", sans-serif;
+  --ff-francois: "Francois One", sans-serif;
+  --ff-josefin: "Josefin Sans", sans-serif;
+  --ff-lexend: "Lexend Deca", sans-serif;
+  --ff-lilita: "Lilita One", sans-serif;
+  --ff-russo: "Russo One", sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--ff-bebas);
 }
 
 .page {
@@ -14,80 +25,87 @@ body {
   color: white;
 }
 
-/* a {
-  color: white;
+a {
   text-decoration: none;
 }
- */
+
+/* Black and White */
+
+.light-navbar a,
+.light-my-games > a,
+.light-themes,
+.light-sidebar > h1,
+.light-sidebar > ul > li > p,
+.light-category > h1,
+.light-game-description > h1 > a,
+.light-game-description > .release-date,
+.light-my-games-page > h1,
+.light-df-items > .df-item > dt,
+.my-games-page > button > a,
+.light-my-games-page > button > a,
+.light-game-display > div > h1 {
+  color: black;
+}
+
+.navbar a,
+.my-games > a,
+.sidebar > ul > li > p,
+.game-description > h1 > a,
+.df-item > dt,
+.game-display > div > h1 {
+  color: white;
+}
+
 /*-- Navbar --------------------------------------------------------- */
 
-.navbar {
-  width: 100%;
+.navbar,
+.light-navbar {
   position: fixed;
+  width: 100%;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.5);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 999;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .light-navbar {
-  width: 100%;
-  position: fixed;
-  padding: 10px;
   background: rgba(255, 255, 255, 0.5);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  z-index: 999;
 }
 
 .navbar-section {
   display: grid;
   grid-template-columns: 0.3fr 1.4fr 0.3fr 0.2fr 0.2fr;
-  gap: 1rem;
   align-items: center;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-}
-
-.light-navbar a {
-  color: black;
-  text-decoration: none;
+  gap: 1rem;
 }
 
 .navbar-section > h1 {
   margin: 0;
-  font-family: "Lilita One", sans-serif;
+  font-family: var(--ff-lilita);
 }
 
 .navbar-section > form > input {
-  outline: none;
-  border-radius: 16px;
   font-size: 1.2rem;
-  border: none;
   padding: 8px 15px;
+  border-radius: 16px;
+  border: none;
+  outline: none;
 }
 
 .my-games,
 .light-my-games {
+  display: flex;
   align-self: center;
   font-size: 1.5rem;
-  display: flex;
 }
 
-.my-games > a {
-  display: flex;
-  color: white;
-  text-decoration: none;
-}
-
+.my-games > a,
 .light-my-games > a {
   display: flex;
-  color: black;
-  text-decoration: none;
 }
 
 .my-games > a:hover,
@@ -109,8 +127,8 @@ form > input {
 }
 
 .switch {
-  position: relative;
   display: inline-block;
+  position: relative;
   width: 60px;
   height: 34px;
   margin-right: 5px;
@@ -160,8 +178,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
-.slider.round {
+.slider.round {          /* Rounded sliders */
   border-radius: 34px;
 }
 
@@ -186,10 +203,6 @@ input:checked + .slider:before {
   font-size: 1.5rem;
 }
 
-.light-themes {
-  color: black;
-}
-
 /* Sidebar ------------------------------------------------- */
 
 .sidebar,
@@ -204,24 +217,20 @@ input:checked + .slider:before {
 
 .sidebar > h1,
 .light-sidebar > h1 {
-  margin-top: 0;
-  font-family: "Russo One", sans-serif;
+  font-family: var(--ff-russo);
   font-size: 1.5rem;
-}
-
-.light-sidebar > h1 {
-  color: black;
+  margin-top: 0;
 }
 
 .sidebar > ul,
 .light-sidebar > ul {
-  margin: 0;
-  padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 0;
   margin-right: 10px;
+  padding: 0;
 }
 
 .sidebar > ul > li,
@@ -234,21 +243,13 @@ input:checked + .slider:before {
 
 .sidebar > ul > li > p,
 .light-sidebar > ul > li > p {
-  font-family: "Lexend Deca", sans-serif;
+  font-family: var(--ff-lexend);
   font-weight: 300;
   background: transparent;
   border: none;
   cursor: pointer;
   text-align: left;
   margin: 0;
-}
-
-.sidebar > ul > li > p {
-  color: white;
-}
-
-.light-sidebar > ul > li > p {
-  color: black;
 }
 
 .sidebar > ul > li:hover,
@@ -269,8 +270,7 @@ input:checked + .slider:before {
   width: 5px;
 }
 
-/* Track */
-.sidebar::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track {    /* Track */
   background: #f1f1f1;
   border-radius: 4px;
 }
@@ -280,16 +280,15 @@ input:checked + .slider:before {
   border-radius: 4px;
 }
 
-/* Handle */
+
 .sidebar::-webkit-scrollbar-thumb,
-.light-sidebar::-webkit-scrollbar-thumb {
+.light-sidebar::-webkit-scrollbar-thumb {     /* Handle */
   border-radius: 4px;
   background: #888;
 }
 
-/* Handle on hover */
 .sidebar::-webkit-scrollbar-thumb:hover,
-.light-sidebar::-webkit-scrollbar-thumb:hover {
+.light-sidebar::-webkit-scrollbar-thumb:hover {   /* Handle on hover */
   background: #555;
 }
 
@@ -301,30 +300,25 @@ input:checked + .slider:before {
   margin-left: 210px;
 }
 
-.light-category > h1 {
-  color: black;
-}
-
 .category > h1,
 .light-category > h1 {
-  font-family: "Russo One", sans-serif;
+  font-family: var(--ff-russo);
   font-size: 3rem;
 }
 
 select {
-  outline: none;
-  border: 1px solid #ccc;
   padding: 8px;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #fff;
   margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  background-color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-/* Focus effect */
-select:focus {
-  border-color: #4a90e2; /* Adjust the color as needed */
+select:focus {      
+  border-color: #4a90e2;
 }
 
 /*-- Games --------------------------------------------------------------------- */
@@ -355,16 +349,6 @@ select:focus {
   transition: transform 0.25s;
 }
 
-.game-description > h1 > a {
-  color: white;
-  text-decoration: none;
-}
-
-.light-game-description > h1 > a {
-  color: black;
-  text-decoration: none;
-}
-
 .game-card:hover,
 .light-game-card:hover {
   transform: scale(1.05);
@@ -391,7 +375,7 @@ select:focus {
 .light-game-card > .light-game-description > h1 {
   margin: 0;
   font-size: 1.5rem;
-  font-family: Helvetica, sans-serif;
+  font-family: var(--ff-archivo);
 }
 
 .game-card > .game-description > .card-bottom > .emoji,
@@ -436,21 +420,26 @@ select:focus {
 
 .game-description > .release-date,
 .light-game-description > .release-date {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: var(--ff-josefin);
   margin: 10px 0;
 }
 
-.light-game-description > .release-date {
-  color: black;
-}
-
-.loader {
-  border: 8px solid #000000; /* Light grey */
-  border-top: 8px solid #f3f3f3; /* Blue */
+.loader,
+.light-loader {
   border-radius: 50%;
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
+}
+
+.loader {
+  border: 8px solid rgb(0, 0, 0); 
+  border-top: 8px solid #f3f3f3; 
+}
+
+.light-loader {
+  border: 8px solid #ffffff; 
+  border-top: 8px solid rgb(13, 13, 13); 
 }
 
 /* My games page ------------------------------------------------------ */
@@ -467,20 +456,14 @@ select:focus {
 
 .my-games-page > button,
 .light-my-games-page > button {
+  font-family: var(--ff-anton);
+  font-size: 1rem;
   padding: 10px 15px;
   border-radius: 18px;
-  background-color: rgb(0, 145, 255);
   border: 0;
-  font-family: "Anton", sans-serif;
-  cursor: pointer;
-  font-size: 1rem;
+  background-color: rgb(0, 145, 255);
   transition: box-shadow 0.3s;
-}
-
-.my-games-page > button > a,
-.light-my-games-page > button > a {
-  text-decoration: none;
-  color: black;
+  cursor: pointer;
 }
 
 .my-games-page > button:hover,
@@ -496,71 +479,79 @@ select:focus {
 
 .my-games-page > h1,
 .light-my-games-page > h1 {
-  font-family: "Francois One", sans-serif;
-}
-
-.light-my-games-page > h1 {
-  color: black;
+  font-family: var(--ff-francois);
 }
 
 /* game-display ------------------------------------------------- */
 
 .game-display,
 .light-game-display {
-  padding: 4rem 2rem;
   display: grid;
   grid-template-columns: 50% 50%;
+  padding: 5rem 2rem;
 }
 
-.game-display > div > h1 {
-  margin: 0;
-  color: white;
-  font-family: "Russo One", sans-serif;
+.light-game-display {
+  background-color: rgb(240, 240, 240);
 }
 
+.game-display > div > h1,
 .light-game-display > div > h1 {
-  color: black;
+  margin: 0;
+  font-family: var(--ff-lexend);
 }
 
 .game-display > div > p,
 .light-game-display > div > p {
-  font-family: "Francois One";
-  padding: 10px;
+  font-family: var(--ff-francois);
   font-size: 1rem;
+  padding: 10px;
+}
+
+.game-display > div > p {
   color: silver;
+}
+
+.light-game-display > div > p {
+  color: rgb(79, 79, 79);
 }
 
 .game-display > div > p > button,
 .light-game-display > div > p > button {
   background-color: rgb(102, 102, 102);
-  color: white;
   border: 0;
   border-radius: 4px;
+  color: white;
   cursor: pointer;
 }
 
 .game-display > div > p > button:hover,
 .light-game-display > div > p > button:hover {
-  background-color: silver;
   font-weight: bold;
+  background-color: silver;
   color: black;
 }
 
-.df-items {
+.df-items,
+.light-df-items {
   display: grid;
   grid-template-columns: 50% 50%;
-  padding: 1rem;
   row-gap: 1rem;
+  padding: 1rem;
 }
 
-.df-item > dt {
-  font-family: "Russo One", sans-serif;
+.df-item > dt,
+.light-df-items > .df-item > dt {
+  font-family: var(--ff-russo);
   font-size: 1.5rem;
-  color: white;
+}
+
+.light-df-items > .df-item > dd {
+  color: #3a3a3a;
 }
 
 .df-item > dd {
-  font-family: "Francois One";
+  font-family: var(--ff-francois);
   color: silver;
 }
 
@@ -574,7 +565,8 @@ select:focus {
   gap: 0.5rem;
 }
 
-.game-ss > div > img {
+.game-ss > div > img,
+.light-game {
   width: auto;
   height: 200px;
 }
@@ -682,5 +674,4 @@ select:focus {
 }
 
 @media screen and (max-width: 525px) {
-
 }
