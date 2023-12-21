@@ -17,13 +17,15 @@ const Games = ({
 }) => {
   const [end, setEnd] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [skeletonLoading, setSkeletonLoading] = useState(false);
   const { games, error, setPage, hasMore } = useGames(
     setLoading,
     selectedGenre,
     selectedPlatform,
     setChanged,
     selectedOrder,
-    search
+    search,
+    setSkeletonLoading
   );
   const skeletons = Array(20).fill(1);
 
@@ -50,7 +52,7 @@ const Games = ({
 
   return (
     <div className="games">
-      {(loading || changed) && (
+      {skeletonLoading && (
         <div className="games-container">
           {skeletons.map((_, index) => (
             <div key={index}>

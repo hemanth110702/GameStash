@@ -8,7 +8,8 @@ const useGames = (
   selectedPlatform,
   setChanged,
   selectedOrder,
-  search
+  search,
+  setSkeletonLoading
 ) => {
   const [games, setGames] = useState([]);
   const [error, setError] = useState("");
@@ -73,6 +74,7 @@ const useGames = (
   useEffect(() => {
     const controller = new AbortController();
     setChanged(true);
+    setSkeletonLoading(true);
 
     const fetchData = async (pageNumber) => {
       try {
@@ -97,12 +99,14 @@ const useGames = (
         setGames([...newGames]);
         setLoading(false);
         setChanged(false);
+        setSkeletonLoading(false);
         window.scrollTo({ top: 0, behavior: "smooth" });
       } catch (err) {
         if (err instanceof CanceledError) return;
         setError(err.message);
         setLoading(false);
         setChanged(false);
+        setSkeletonLoading(false);
       }
     };
     const handleScroll = () => {
