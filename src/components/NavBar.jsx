@@ -21,7 +21,7 @@ const NavBar = ({ setSearch, setChanged, darkTheme, setDarkTheme }) => {
         <div className={darkTheme ? "my-games" : "light-my-games"}>
           <Link to="/myGames">
             <img src={love} alt="" />
-            My Games
+            <span>My Games</span>
           </Link>{" "}
         </div>
       </div>

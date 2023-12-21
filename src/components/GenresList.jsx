@@ -4,7 +4,7 @@ import getOptimizedImage from "../services/image-url";
 const GenresList = ({ selectedGenre, setSelectedGenre, darkTheme }) => {
   const genres = useGenres();
   return (
-    <ul>
+    <ul className="scroll-container">
       {genres.map((genre) => (
         <li
           onClick={() => setSelectedGenre(() => genre)}

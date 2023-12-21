@@ -71,7 +71,7 @@ const useGames = (
   useEffect(() => {
     const controller = new AbortController();
     setChanged(true);
-    setLoading(true);
+    setLoading(true);   
 
     const fetchData = async (pageNumber) => {
       try {

@@ -27,8 +27,13 @@ function App() {
   }, [likedGames]);
 
   return (
-    <div className={darkTheme?"page":"light-page"}>
-      <NavBar setSearch={setSearch} setChanged={setChanged} darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
+    <div className={darkTheme ? "page" : "light-page"}>
+      <NavBar
+        setSearch={setSearch}
+        setChanged={setChanged}
+        darkTheme={darkTheme}
+        setDarkTheme={setDarkTheme}
+      />
       <Routes>
         <Route
           path="/"
@@ -67,13 +72,17 @@ function App() {
           }
         />
         <Route path="/games">
-          <Route path=":slug" element={<GameDisplay darkTheme={darkTheme}/>} />
+          <Route path=":slug" element={<GameDisplay darkTheme={darkTheme} />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
         <Route
           path="/myGames"
           element={
-            <MyGames likedGames={likedGames} setLikedGames={setLikedGames} darkTheme={darkTheme}/>
+            <MyGames
+              likedGames={likedGames}
+              setLikedGames={setLikedGames}
+              darkTheme={darkTheme}
+            />
           }
         />
       </Routes>

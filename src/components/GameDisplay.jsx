@@ -30,7 +30,7 @@ const GameDisplay = ({darkTheme}) => {
             />
           </div>
         </div>
-        <div>
+        <div className="game-visuals">
           <div className={"game-trailer"}>
             <GameTrailer slug={data.slug} />
           </div>
