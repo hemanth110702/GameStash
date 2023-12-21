@@ -23,7 +23,7 @@ const PlatformSelector = ({
       onChange={handlePlatform}
       defaultValue="Platform"
     >
-      <option value="Platform" disabled >
+      <option value="Platform" disabled>
         {"Platform"}
       </option>
       {platforms.map((platform, index) => (

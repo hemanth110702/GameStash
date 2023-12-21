@@ -1,14 +1,14 @@
-import NavBar from "./components/NavBar";
-import CategoryDisplay from "./components/CategoryDisplay";
-import Games from "./components/Games";
-import SideBar from "./components/SideBar";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import ErrorPage from "./components/ErrorPage";
+import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
+import CategoryDisplay from "./components/CategoryDisplay";
+import Games from "./components/Games";
 import GameDisplay from "./components/GameDisplay";
 import MyGames from "./components/MyGames";
-import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
+import ErrorPage from "./components/ErrorPage";
+import "./App.css";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState(null);
@@ -29,65 +29,68 @@ function App() {
 
   return (
     <div className={darkTheme ? "page" : "light-page"}>
-      <NavBar
-        setSearch={setSearch}
-        setChanged={setChanged}
-        darkTheme={darkTheme}
-        setDarkTheme={setDarkTheme}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <SideBar
-                changed={changed}
-                setChanged={setChanged}
-                selectedGenre={selectedGenre}
-                setSelectedGenre={setSelectedGenre}
-                darkTheme={darkTheme}
-              />
-              <CategoryDisplay
-                changed={changed}
-                selectedGenre={selectedGenre}
-                setChanged={setChanged}
-                selectedPlatform={selectedPlatform}
-                setSelectedPlatform={setSelectedPlatform}
-                selectedOrder={selectedOrder}
-                setSelectedOrder={setSelectedOrder}
-                darkTheme={darkTheme}
-              />
-              <Games
-                search={search}
-                changed={changed}
-                setChanged={setChanged}
-                selectedGenre={selectedGenre}
-                selectedPlatform={selectedPlatform}
-                selectedOrder={selectedOrder}
-                setSelectedOrder={setSelectedOrder}
+        <NavBar
+          setSearch={setSearch}
+          setChanged={setChanged}
+          darkTheme={darkTheme}
+          setDarkTheme={setDarkTheme}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <SideBar
+                  changed={changed}
+                  setChanged={setChanged}
+                  selectedGenre={selectedGenre}
+                  setSelectedGenre={setSelectedGenre}
+                  darkTheme={darkTheme}
+                />
+                <CategoryDisplay
+                  changed={changed}
+                  selectedGenre={selectedGenre}
+                  setChanged={setChanged}
+                  selectedPlatform={selectedPlatform}
+                  setSelectedPlatform={setSelectedPlatform}
+                  selectedOrder={selectedOrder}
+                  setSelectedOrder={setSelectedOrder}
+                  darkTheme={darkTheme}
+                />
+                <Games
+                  search={search}
+                  changed={changed}
+                  setChanged={setChanged}
+                  selectedGenre={selectedGenre}
+                  selectedPlatform={selectedPlatform}
+                  selectedOrder={selectedOrder}
+                  setSelectedOrder={setSelectedOrder}
+                  likedGames={likedGames}
+                  setLikedGames={setLikedGames}
+                  darkTheme={darkTheme}
+                />{" "}
+              </>
+            }
+          />
+          <Route path="/games">
+            <Route
+              path=":slug"
+              element={<GameDisplay darkTheme={darkTheme} />}
+            />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+          <Route
+            path="/myGames"
+            element={
+              <MyGames
                 likedGames={likedGames}
                 setLikedGames={setLikedGames}
                 darkTheme={darkTheme}
-              />{" "}
-            </>
-          }
-        />
-        <Route path="/games">
-          <Route path=":slug" element={<GameDisplay darkTheme={darkTheme} />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-        <Route
-          path="/myGames"
-          element={
-            <MyGames
-              likedGames={likedGames}
-              setLikedGames={setLikedGames}
-              darkTheme={darkTheme}
-            />
-          }
-        />
-        <Route path="*" element={<ErrorPage darkTheme={darkTheme} />} />
-      </Routes>
+              />
+            }
+          />
+          <Route path="*" element={<ErrorPage darkTheme={darkTheme} />} />
+        </Routes>
         <ScrollToTop darkTheme={darkTheme} />
     </div>
   );

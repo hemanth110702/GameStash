@@ -7,13 +7,14 @@ const CategoryDisplay = ({
   setSelectedPlatform,
   setSelectedOrder,
   selectedGenre,
-  darkTheme
+  darkTheme,
 }) => {
-
-  const gameHeading = `${selectedPlatform?.name || ''}  ${selectedGenre?.name || ''} Games `
+  const gameHeading = `${selectedPlatform?.name || ""}  ${
+    selectedGenre?.name || ""
+  } Games `;
 
   return (
-    <div className={darkTheme?"category":"light-category"}>
+    <div className={darkTheme ? "category" : "light-category"}>
       <h1>{gameHeading}</h1>
       <PlatformSelector
         setChanged={setChanged}

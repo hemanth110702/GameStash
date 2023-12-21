@@ -1,4 +1,4 @@
-import platforms from "../data/platforms"
+import platforms from "../data/platforms";
 
 const usePlatform = () => {
   return platforms;

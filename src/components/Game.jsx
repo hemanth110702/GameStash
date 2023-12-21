@@ -23,7 +23,7 @@ const Game = ({ game, likedGames, setLikedGames, darkTheme }) => {
           <Link to={`/games/${game.slug}`}>{game.name}</Link>
         </h1>
         <ReleaseDate release={game.released} />
-        <div className={darkTheme?"card-bottom":"light-card-bottom"}>
+        <div className={darkTheme ? "card-bottom" : "light-card-bottom"}>
           <Emoji ratingTop={game.rating_top} />
           <Collection
             game={game}

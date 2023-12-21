@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import rocket from "../assets/rocket.png"
+import rocket from "../assets/rocket.png";
 import { animateScroll as scroll } from "react-scroll";
 
-const ScrollToTop = ({darkTheme}) => {
+const ScrollToTop = ({ darkTheme }) => {
   const [showScroll, setShowScroll] = useState(false);
 
   const checkScrollTop = () => {
@@ -29,13 +29,14 @@ const ScrollToTop = ({darkTheme}) => {
   }, [showScroll]);
   return (
     <div
-        className={`scrollToTop ${showScroll ? 'show' : 'hide'} ${darkTheme?'scroll-dark':'scroll-light'}`}
-        onClick={scrollTop}
-      >
-        <img src={rocket} alt="rocket" />
-      </div>
+      className={`scrollToTop ${showScroll ? "show" : "hide"} ${
+        darkTheme ? "scroll-dark" : "scroll-light"
+      }`}
+      onClick={scrollTop}
+    >
+      <img src={rocket} alt="rocket" />
+    </div>
+  );
+};
 
-  )
-}
-
-export default ScrollToTop
+export default ScrollToTop;

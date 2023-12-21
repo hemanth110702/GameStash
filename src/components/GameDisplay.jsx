@@ -6,7 +6,7 @@ import DefinitionItem from "./DefinitionItem";
 import GameTrailer from "./GameTrailer";
 import GameScreenShots from "./GameScreenShots";
 
-const GameDisplay = ({darkTheme}) => {
+const GameDisplay = ({ darkTheme }) => {
   const data = useParams();
   const gameData = useGame(data.slug);
   if (gameData) {
@@ -20,8 +20,8 @@ const GameDisplay = ({darkTheme}) => {
         <div>
           <h1>{gameData.name}</h1>
           <ExpandableText description={gameData.description_raw} />
-          <div className={darkTheme?"df-items":"light-df-items"}>
-            <DefinitionItem term="Platform" items={platforms}  />
+          <div className={darkTheme ? "df-items" : "light-df-items"}>
+            <DefinitionItem term="Platform" items={platforms} />
             <DefinitionItem term="Genres" items={genres} />
             <DefinitionItem term="Metascore" items={[gameData.metacritic]} />
             <DefinitionItem

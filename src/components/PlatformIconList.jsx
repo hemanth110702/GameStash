@@ -39,4 +39,3 @@ const PlatformIconList = ({ platforms }) => {
 };
 
 export default PlatformIconList;
-
