@@ -8,6 +8,7 @@ import ErrorPage from "./components/ErrorPage";
 import GameDisplay from "./components/GameDisplay";
 import MyGames from "./components/MyGames";
 import "./App.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState(null);
@@ -87,6 +88,7 @@ function App() {
         />
         <Route path="*" element={<ErrorPage darkTheme={darkTheme} />} />
       </Routes>
+        <ScrollToTop darkTheme={darkTheme} />
     </div>
   );
 }

@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
   background-color: rgb(13, 13, 13);
   color: white;
+  position: relative;
 }
 
 .page > h1 {
@@ -66,6 +67,31 @@ a {
 .df-item > dt,
 .game-display > div > h1 {
   color: white;
+}
+
+/* scroll to top --------------------------------------------------- */
+
+.scrollToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 800;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 40px;
+}
+
+.hide {
+  display: none;
+}
+
+.scroll-dark {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.scroll-light {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 /*-- Navbar --------------------------------------------------------- */
@@ -640,7 +666,8 @@ select:focus {
 }
 
 /* error page ------------------------------------ */
-.error-page, .light-error-page {
+.error-page,
+.light-error-page {
   padding-top: 5rem;
   text-align: center;
 }
@@ -649,13 +676,13 @@ select:focus {
   color: black;
 }
 
-
 .error-page > h1,
 .light-error-page > h1 {
   font-size: 5rem;
 }
 
-.error-page > h2, .light-error-page > h2 {
+.error-page > h2,
+.light-error-page > h2 {
   font-size: 4rem;
 }
 
@@ -748,7 +775,8 @@ select:focus {
   .my-games-games {
     grid-template-columns: 1fr;
   }
-  .game-display, .light-game-display {
+  .game-display,
+  .light-game-display {
     grid-template-columns: 1fr;
   }
 }
@@ -779,6 +807,10 @@ select:focus {
     text-align: center;
     font-size: 2.5rem;
     margin-top: 5rem;
+  }
+
+  .scrollToTop {
+    bottom: 70px;
   }
 
   /* Sidebar ----------------------------------------------------------- */
