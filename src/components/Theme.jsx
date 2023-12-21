@@ -9,13 +9,13 @@ const Theme = ({ darkTheme, setDarkTheme }) => {
 
   return (
     <div className={darkTheme?"themes":"light-themes"}>
-      <label class="switch">
+      <label className="switch">
         <input
           type="checkbox"
           onChange={handleThemeChange}
           defaultChecked={darkTheme}
         />
-        <span class="slider round"></span>
+        <span className="slider round"></span>
       </label>
         Dark Theme
     </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ErrorPage = () => {
+const ErrorPage = ({darkTheme}) => {
   return (
-    <div>
-      <h1>Oops</h1>
+    <div className={darkTheme?'error-page':'light-error-page'}>
+      <h1>Oops !!!</h1>
       <h2>The page doesn't exist</h2>
     </div>
   )

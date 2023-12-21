@@ -85,6 +85,7 @@ function App() {
             />
           }
         />
+        <Route path="*" element={<ErrorPage darkTheme={darkTheme} />} />
       </Routes>
     </div>
   );

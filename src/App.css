@@ -16,8 +16,20 @@ body {
 }
 
 .page {
+  min-height: 100vh;
   background-color: rgb(13, 13, 13);
   color: white;
+}
+
+.page > h1 {
+  margin-left: 210px;
+  font-size: 5rem;
+  color: red;
+}
+
+.page > h1::after {
+  content: "Please try again later";
+  display: block;
 }
 
 .light-page {
@@ -337,7 +349,7 @@ select:focus {
 
 .games-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 30px;
   gap: 1.5rem;
 }
@@ -437,13 +449,13 @@ select:focus {
 }
 
 .loader {
-  border: 8px solid rgb(0, 0, 0);
-  border-top: 8px solid #f3f3f3;
+  border: 8px solid white;
+  border-top: 8px solid rgb(13, 13, 13);
 }
 
 .light-loader {
-  border: 8px solid #ffffff;
-  border-top: 8px solid rgb(13, 13, 13);
+  border: 8px solid white;
+  border-top: 8px solid black;
 }
 
 /* My games page ------------------------------------------------------ */
@@ -478,7 +490,7 @@ select:focus {
 
 .my-games-games {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1.5rem;
 }
 
@@ -627,6 +639,26 @@ select:focus {
   background: #555;
 }
 
+/* error page ------------------------------------ */
+.error-page, .light-error-page {
+  padding-top: 5rem;
+  text-align: center;
+}
+
+.light-error-page {
+  color: black;
+}
+
+
+.error-page > h1,
+.light-error-page > h1 {
+  font-size: 5rem;
+}
+
+.error-page > h2, .light-error-page > h2 {
+  font-size: 4rem;
+}
+
 /* media queries -------------------------------- */
 
 @media screen and (max-width: 3500px) {
@@ -699,6 +731,10 @@ select:focus {
 }
 
 @media screen and (max-width: 835px) {
+  .page > h1 {
+    font-size: 3rem;
+  }
+
   .games-container {
     grid-template-columns: 1fr;
   }
@@ -738,6 +774,13 @@ select:focus {
 }
 
 @media screen and (max-width: 520px) {
+  .page > h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+  }
+
   /* Sidebar ----------------------------------------------------------- */
   .sidebar,
   .light-sidebar {

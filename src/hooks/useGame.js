@@ -6,7 +6,7 @@ const useGame = (url) => {
   const [gameDetails, setGameDetails] = useState("");
 
   const fetchGamesData = async () => {
-    const response = await apiClient.get(`/games/${url}`);
+    const response = await apiClient.get(`/xgames/${url}`);
     setGameDetails(response.data);
   }
 
