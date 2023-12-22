@@ -80,6 +80,11 @@ a {
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: 40px;
+  transition: background-color 5s;
+}
+
+.scrollToTop:hover {
+  background-color: rgb(255, 0, 0);
 }
 
 .hide {
