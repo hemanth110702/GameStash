@@ -147,7 +147,8 @@ a {
 }
 
 .my-games > a:hover,
-.light-my-games > a:hover {
+.light-my-games > a:hover,
+.active {
   border-bottom: 2px solid rgba(253, 99, 99, 0.5);
 }
 
@@ -471,6 +472,7 @@ select:focus {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  margin-bottom: 40px;
   animation: spin 1s linear infinite;
 }
 
@@ -603,6 +605,8 @@ select:focus {
 .game-visuals {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -842,6 +846,7 @@ select:focus {
   .light-sidebar > h1 {
     margin: 0;
     margin-left: 0.5rem;
+    font-size: 1.5rem;
   }
 
   .sidebar > ul,
@@ -905,6 +910,10 @@ select:focus {
   .category > h1,
   .light-category > h1 {
     font-size: 2.5rem;
+  }
+
+  .game-ss > div {
+    grid-template-columns: 1fr;
   }
 }
 

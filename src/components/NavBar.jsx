@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import love from "../assets/love.png";
 import Theme from "./Theme";
@@ -19,10 +19,10 @@ const NavBar = ({ setSearch, setChanged, darkTheme, setDarkTheme }) => {
         />
         <Theme darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         <div className={darkTheme ? "my-games" : "light-my-games"}>
-          <Link to="/myGames">
+          <NavLink to="/myGames">
             <img src={love} alt="" />
             <span>My Games</span>
-          </Link>{" "}
+          </NavLink>{" "}
         </div>
       </div>
     </div>
