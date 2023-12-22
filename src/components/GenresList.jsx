@@ -7,7 +7,10 @@ const GenresList = ({ selectedGenre, setSelectedGenre, darkTheme }) => {
     <ul className="scroll-container">
       {genres.map((genre) => (
         <li
-          onClick={() => setSelectedGenre(() => genre)}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            setSelectedGenre(() => genre);
+          }}
           key={genre.id}
           style={{
             borderRadius: selectedGenre?.id === genre.id ? "8px" : "",

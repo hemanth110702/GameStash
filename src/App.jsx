@@ -22,6 +22,21 @@ function App() {
     likedGamesJSON ? JSON.parse(likedGamesJSON) : []
   );
 
+  const passer = {
+    selectedGenre,
+    setSelectedGenre,
+    selectedOrder,
+    setSelectedOrder,
+    search,
+    setSearch,
+    darkTheme,
+    setDarkTheme,
+    changed,
+    setChanged,
+    likedGames,
+    setLikedGames,
+  };
+
   useEffect(() => {
     localStorage.setItem("likedGames", JSON.stringify(likedGames));
     console.log("APP", likedGames);
@@ -29,69 +44,26 @@ function App() {
 
   return (
     <div className={darkTheme ? "page" : "light-page"}>
-        <NavBar
-          setSearch={setSearch}
-          setChanged={setChanged}
-          darkTheme={darkTheme}
-          setDarkTheme={setDarkTheme}
+      <NavBar {...passer} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <SideBar {...passer} />
+              <CategoryDisplay {...passer} />
+              <Games {...passer} />{" "}
+            </>
+          }
         />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <SideBar
-                  changed={changed}
-                  setChanged={setChanged}
-                  selectedGenre={selectedGenre}
-                  setSelectedGenre={setSelectedGenre}
-                  darkTheme={darkTheme}
-                />
-                <CategoryDisplay
-                  changed={changed}
-                  selectedGenre={selectedGenre}
-                  setChanged={setChanged}
-                  selectedPlatform={selectedPlatform}
-                  setSelectedPlatform={setSelectedPlatform}
-                  selectedOrder={selectedOrder}
-                  setSelectedOrder={setSelectedOrder}
-                  darkTheme={darkTheme}
-                />
-                <Games
-                  search={search}
-                  changed={changed}
-                  setChanged={setChanged}
-                  selectedGenre={selectedGenre}
-                  selectedPlatform={selectedPlatform}
-                  selectedOrder={selectedOrder}
-                  setSelectedOrder={setSelectedOrder}
-                  likedGames={likedGames}
-                  setLikedGames={setLikedGames}
-                  darkTheme={darkTheme}
-                />{" "}
-              </>
-            }
-          />
-          <Route path="/games">
-            <Route
-              path=":slug"
-              element={<GameDisplay darkTheme={darkTheme} />}
-            />
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
-          <Route
-            path="/myGames"
-            element={
-              <MyGames
-                likedGames={likedGames}
-                setLikedGames={setLikedGames}
-                darkTheme={darkTheme}
-              />
-            }
-          />
-          <Route path="*" element={<ErrorPage darkTheme={darkTheme} />} />
-        </Routes>
-        <ScrollToTop darkTheme={darkTheme} />
+        <Route path="/games">
+          <Route path=":slug" element={<GameDisplay darkTheme={darkTheme} />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+        <Route path="/myGames" element={<MyGames {...passer} />} />
+        <Route path="*" element={<ErrorPage darkTheme={darkTheme} />} />
+      </Routes>
+      <ScrollToTop darkTheme={darkTheme} />
     </div>
   );
 }
