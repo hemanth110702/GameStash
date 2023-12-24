@@ -25,6 +25,8 @@ function App() {
   const passer = {
     selectedGenre,
     setSelectedGenre,
+    selectedPlatform,
+    setSelectedPlatform,
     selectedOrder,
     setSelectedOrder,
     search,

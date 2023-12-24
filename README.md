@@ -19,8 +19,8 @@ Welcome to GameStash, a React-based website that lets users explore and save the
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/react-game-stash.git
-   cd react-game-stash
+   git clone https://github.com/hemanth110702/GameStash.git
+   cd GameStash
 
    ```
 
