@@ -59,7 +59,10 @@ function App() {
           }
         />
         <Route path="/games">
-          <Route path=":slug" element={<GameDisplay darkTheme={darkTheme} />} />
+          <Route
+            path=":slug"
+            element={<GameDisplay {...passer} />}
+          />
           <Route path="*" element={<ErrorPage />} />
         </Route>
         <Route path="/myGames" element={<MyGames {...passer} />} />

@@ -7,8 +7,9 @@ import GameTrailer from "./GameTrailer";
 import GameScreenShots from "./GameScreenShots";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Collection from "./Collection";
 
-const GameDisplay = ({ darkTheme }) => {
+const GameDisplay = ({ darkTheme, likedGames, setLikedGames }) => {
   const data = useParams();
   const [loading, setLoading] = useState(true); // Set initial loading state to true
   const gameData = useGame(data.slug, setLoading);
@@ -51,7 +52,14 @@ const GameDisplay = ({ darkTheme }) => {
   return (
     <div className={darkTheme ? "game-display" : "light-game-display"}>
       <div>
-        <h1>{gameData.name}</h1>
+        <h1>
+          {gameData.name}{" "}
+          <Collection
+            game={gameData}
+            likedGames={likedGames}
+            setLikedGames={setLikedGames}
+          />{" "}
+        </h1>
         <ExpandableText description={gameData.description_raw} />
         <div className={darkTheme ? "df-items" : "light-df-items"}>
           <DefinitionItem term="Platform" items={platforms} />

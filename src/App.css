@@ -549,8 +549,14 @@ select:focus {
 .light-game-display > div > h1 {
   margin: 0;
   font-family: var(--ff-lexend);
+  display: flex;
+  align-items: center;
 }
 
+.game-display > div > h1 > button > img,
+.light-game-display > div > h1 > button > img {
+  width: 2.5rem;
+}
 .game-display > div > p,
 .light-game-display > div > p {
   font-family: var(--ff-francois);
@@ -610,7 +616,7 @@ select:focus {
 .game-visuals {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
 }
