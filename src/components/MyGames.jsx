@@ -11,6 +11,7 @@ const MyGames = ({ likedGames, setLikedGames, darkTheme }) => {
             return (
               <Game
                 game={game}
+                key={game.id}
                 likedGames={likedGames}
                 setLikedGames={setLikedGames}
                 darkTheme={darkTheme}

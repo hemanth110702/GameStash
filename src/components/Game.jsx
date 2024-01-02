@@ -20,7 +20,9 @@ const Game = ({ game, likedGames, setLikedGames, darkTheme }) => {
           <CriticScore metacritic={game.metacritic} />
         </div>
         <h1>
-          <Link to={`/games/${game.slug}`}>{game.name}</Link>
+          <Link to={`/games/${game.slug}`} target="_blank">
+            {game.name}
+          </Link>
         </h1>
         <ReleaseDate release={game.released} />
         <div className={darkTheme ? "card-bottom" : "light-card-bottom"}>
