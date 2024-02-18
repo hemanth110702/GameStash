@@ -8,8 +8,11 @@ import GameScreenShots from "./GameScreenShots";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Collection from "./Collection";
+import { useGameStashContext } from "../App";
 
-const GameDisplay = ({ darkTheme, likedGames, setLikedGames }) => {
+const GameDisplay = () => {
+
+  const { darkTheme, likedGames, setLikedGames } = useGameStashContext();
   const data = useParams();
   const [loading, setLoading] = useState(true); // Set initial loading state to true
   const gameData = useGame(data.slug, setLoading);

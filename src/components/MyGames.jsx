@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Game from "./Game";
+import { useGameStashContext } from "../App";
 
-const MyGames = ({ likedGames, setLikedGames, darkTheme }) => {
+const MyGames = () => {
+
+  const { likedGames, setLikedGames, darkTheme } = useGameStashContext();
   if (likedGames) {
     return (
       <div className={darkTheme ? "my-games-page" : "light-my-games-page"}>

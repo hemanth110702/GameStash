@@ -3,18 +3,20 @@ import useGames from "../hooks/useGames";
 import Game from "./Game";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useGameStashContext } from "../App";
 
-const Games = ({
-  changed,
-  setChanged,
-  selectedGenre,
-  selectedPlatform,
-  selectedOrder,
-  search,
-  likedGames,
-  setLikedGames,
-  darkTheme,
-}) => {
+const Games = () => {
+  const {
+    setChanged,
+    selectedGenre,
+    selectedPlatform,
+    selectedOrder,
+    search,
+    likedGames,
+    setLikedGames,
+    darkTheme,
+  } = useGameStashContext();
+
   const [end, setEnd] = useState(false);
   const [loading, setLoading] = useState(true);
   const [skeletonLoading, setSkeletonLoading] = useState(false);

@@ -1,14 +1,17 @@
+import { useGameStashContext } from "../App";
 import OrderBySelector from "./OrderBySelector";
 import PlatformSelector from "./PlatformSelector";
 
-const CategoryDisplay = ({
-  setChanged,
-  selectedPlatform,
-  setSelectedPlatform,
-  setSelectedOrder,
-  selectedGenre,
-  darkTheme,
-}) => {
+const CategoryDisplay = () => {
+  const {
+    setChanged,
+    selectedPlatform,
+    setSelectedPlatform,
+    setSelectedOrder,
+    selectedGenre,
+    darkTheme,
+  } = useGameStashContext();
+  
   const gameHeading = `${selectedPlatform?.name || ""}  ${
     selectedGenre?.name || ""
   } Games `;

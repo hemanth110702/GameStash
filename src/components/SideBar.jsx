@@ -1,6 +1,8 @@
+import { useGameStashContext } from "../App";
 import GenresList from "./GenresList";
 
-const SideBar = ({ selectedGenre, setSelectedGenre, darkTheme }) => {
+const SideBar = () => {
+  const { selectedGenre, setSelectedGenre, darkTheme } = useGameStashContext();
   return (
     <>
       <div
