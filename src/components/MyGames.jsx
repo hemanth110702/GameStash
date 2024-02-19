@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import Game from "./Game";
-import { useGameStashContext } from "../App";
+import { useGameStashContext } from "../context/GameStashContext";
 
 const MyGames = () => {
-
   const { likedGames, setLikedGames, darkTheme } = useGameStashContext();
   if (likedGames) {
     return (

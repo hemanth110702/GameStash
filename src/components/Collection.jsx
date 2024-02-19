@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import fav from "../assets/fav.png";
 import favfill from "../assets/favfill.png";
 

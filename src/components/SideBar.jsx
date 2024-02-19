@@ -1,4 +1,4 @@
-import { useGameStashContext } from "../App";
+import { useGameStashContext } from "../context/GameStashContext";
 import GenresList from "./GenresList";
 
 const SideBar = () => {

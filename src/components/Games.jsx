@@ -3,7 +3,7 @@ import useGames from "../hooks/useGames";
 import Game from "./Game";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useGameStashContext } from "../App";
+import { useGameStashContext } from "../context/GameStashContext";
 
 const Games = () => {
   const {

@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import love from "../assets/love.png";
 import Theme from "./Theme";
-import { useGameStashContext } from "../App";
+import { useGameStashContext } from "../context/GameStashContext";
 
 const NavBar = () => {
   const { setSearch, setChanged, darkTheme, setDarkTheme } =
