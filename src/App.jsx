@@ -1,5 +1,5 @@
 import { GameStashContextProvider } from "./context/GameStashContext";
-import GameStash from "./components/GameStash";
+import GameStash from "./Routes/GameStash";
 import "./App.css";
 
 function App() {

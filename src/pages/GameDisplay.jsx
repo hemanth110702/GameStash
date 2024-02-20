@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useGame from "../hooks/useGame";
-import ExpandableText from "./ExpandableText";
-import DefinitionItem from "./DefinitionItem";
-import GameTrailer from "./GameTrailer";
-import GameScreenShots from "./GameScreenShots";
+import ExpandableText from "../components/ExpandableText";
+import DefinitionItem from "../components/DefinitionItem";
+import GameTrailer from "../components/GameTrailer";
+import GameScreenShots from "../components/GameScreenShots";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Collection from "./Collection";
+import Collection from "../components/Collection";
 import { useGameStashContext } from "../context/GameStashContext";
 
 const GameDisplay = () => {

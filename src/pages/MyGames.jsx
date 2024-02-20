@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Game from "./Game";
+import Game from "../components/Game";
 import { useGameStashContext } from "../context/GameStashContext";
 
 const MyGames = () => {

@@ -1,14 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import NavBar from "./NavBar";
-import SideBar from "./SideBar";
-import CategoryDisplay from "./CategoryDisplay";
-import Games from "./Games";
-import GameDisplay from "./GameDisplay";
-import MyGames from "./MyGames";
-import ScrollToTop from "./ScrollToTop";
-import ErrorPage from "./ErrorPage";
+import NavBar from "../components/NavBar";
+import GameDisplay from "../pages/GameDisplay";
+import MyGames from "../pages/MyGames";
+import ScrollToTop from "../components/ScrollToTop";
+import ErrorPage from "../pages/ErrorPage";
 import { useGameStashContext } from "../context/GameStashContext";
+import Home from "../pages/Home";
 
 const GameStash = () => {
   const { darkTheme } = useGameStashContext();
@@ -16,16 +14,7 @@ const GameStash = () => {
     <div className={darkTheme ? "page" : "light-page"}>
       <NavBar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <SideBar />
-              <CategoryDisplay />
-              <Games />
-            </>
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/games">
           <Route path=":slug" element={<GameDisplay />} />
           <Route path="*" element={<ErrorPage />} />
