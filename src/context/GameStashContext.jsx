@@ -36,7 +36,6 @@ export const GameStashContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("likedGames", JSON.stringify(likedGames));
-    console.log("APP", likedGames);
   }, [likedGames]);
 
   useEffect(() => {

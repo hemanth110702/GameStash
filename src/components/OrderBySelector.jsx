@@ -14,8 +14,13 @@ const OrderBySelector = ({ setSelectedOrder }) => {
   ];
 
   return (
-    <select name="orderBy" id="order" onChange={handleOrderBy}>
-      <option key="orderBy" value="order by" disabled selected>
+    <select
+      name="orderBy"
+      id="order"
+      onChange={handleOrderBy}
+      defaultValue="order by"
+    >
+      <option key="orderBy" value="order by" disabled>
         Order By
       </option>
       {orders.map((order) => (

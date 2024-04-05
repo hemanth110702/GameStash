@@ -16,8 +16,6 @@ const useGames = (
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  console.log("this is the selected genre", selectedGenre);
-
   useEffect(() => {
     const controller = new AbortController();
     setChanged(true);

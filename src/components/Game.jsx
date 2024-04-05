@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import Collection from "./Collection";
 
 const Game = ({ game, likedGames, setLikedGames, darkTheme }) => {
-  console.log(game);
   return (
     <div className={darkTheme ? "game-card" : "light-game-card"}>
       <img src={getOptimizedImage(game.background_image)} alt="game" />

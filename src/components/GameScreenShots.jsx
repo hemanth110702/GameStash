@@ -7,8 +7,6 @@ const GameScreenShots = ({ slug }) => {
   if (data) {
     const screenshots = data.results;
 
-    console.log(data);
-
     return (
       <div>
         {screenshots.map((shot) => (
