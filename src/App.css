@@ -15,20 +15,23 @@ body {
   font-family: var(--ff-bebas);
 }
 
-.page {
+.page,
+.light-page {
   min-height: 100vh;
   background-color: rgb(13, 13, 13);
   color: white;
   position: relative;
 }
 
-.page > h1 {
+.page > h1,
+.light-page > h1 {
   margin-left: 210px;
   font-size: 5rem;
   color: red;
 }
 
-.page > h1::after {
+.page > h1::after,
+.light-page > h1::after {
   content: "Please try again later";
   display: block;
 }
