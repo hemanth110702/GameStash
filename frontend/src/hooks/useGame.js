@@ -4,9 +4,10 @@ import apiClient from "../services/apiClient";
 const useGame = (url, setLoading = () => {}) => {
   const [gameDetails, setGameDetails] = useState("");
 
-  const fetchGamesData = async () => {
+  const fetchGameData = async () => {
     try {
-      const response = await apiClient.get(`/games/${url}`);
+      const response = await apiClient.get(`api/games/fetch/${url}`);
+      console.log(response.data);
       setGameDetails(response.data);
     } catch (error) {
       console.error("Error fetching game details:", error);
@@ -17,8 +18,8 @@ const useGame = (url, setLoading = () => {}) => {
 
   useEffect(() => {
     setLoading(true);
-    fetchGamesData();
-  }, [url]); // Include 'url' as a dependency to re-fetch when it changes
+    fetchGameData();
+  }, [url]); 
 
   return gameDetails;
 };

@@ -22,7 +22,7 @@ const useGames = (
 
     const fetchData = async (pageNumber) => {
       try {
-        const response = await apiClient.get("/games", {
+        const response = await apiClient.get("/api/games", {
           signal: controller.signal,
           params: {
             genres: selectedGenre?.id,
@@ -76,7 +76,7 @@ const useGames = (
 
     const fetchData = async (pageNumber) => {
       try {
-        const response = await apiClient.get("/games", {
+        const response = await apiClient.get("/api/games", {
           signal: controller.signal,
           params: {
             genres: selectedGenre?.id,

@@ -29,13 +29,14 @@ const Games = () => {
     search,
     setSkeletonLoading
   );
+  console.log(games);
   const skeletons = Array(20).fill(1);
 
   const observer = useRef();
 
   const lastGameElementRef = useCallback(
     (node) => {
-      if (loading) return; // Avoid unnecessary requests while still loading
+      if (loading) return; 
       if (observer.current) observer.current.disconnect();
 
       observer.current = new IntersectionObserver((entries) => {
