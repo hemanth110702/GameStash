@@ -74,9 +74,9 @@ const GameDisplay = () => {
         </div>
       </div>
       <div className="game-visuals">
-        <div className={"game-trailer"}>
+      {  <div className={"game-trailer"}>
           <GameTrailer slug={data.slug} />
-        </div>
+        </div>}
         <div className={"game-ss"}>
           <GameScreenShots slug={data.slug} />
         </div>

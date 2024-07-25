@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 const Theme = ({ darkTheme, setDarkTheme }) => {
   const handleThemeChange = () => {
     setDarkTheme(!darkTheme);
