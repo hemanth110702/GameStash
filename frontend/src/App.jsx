@@ -1,12 +1,15 @@
 import { GameStashContextProvider } from "./context/GameStashContext";
 import GameStash from "./Routes/GameStash";
 import "./App.css";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <GameStashContextProvider>
-      <GameStash />
-    </GameStashContextProvider>
+    <AuthContextProvider>
+      <GameStashContextProvider>
+        <GameStash />
+      </GameStashContextProvider>
+    </AuthContextProvider>
   );
 }
 

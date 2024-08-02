@@ -251,6 +251,35 @@ input:checked + .slider:before {
   font-size: 1.5rem;
 }
 
+
+/* AuthModal.css */
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.ReactModal__Content {
+  top: 50% !important;
+  left: 50% !important;
+  right: 50% !important;
+  bottom: 10% !important;
+  margin-right: -50% !important;
+  transform: translate(-50%, -50%) !important;
+  padding: 20px !important;
+  border-radius: 10px !important;
+  background-color: #fff !important;
+  z-index: 1111;
+}
+
+.authFC {
+  display: flex;
+}
+
+.lform, .sform {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+}
+
 /* Sidebar ------------------------------------------------- */
 
 .sidebar,

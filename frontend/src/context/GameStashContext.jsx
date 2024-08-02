@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useAuthContext } from "./AuthContext";
 
 export const GameStashContext = createContext();
 export const useGameStashContext = () => useContext(GameStashContext);
 
 export const GameStashContextProvider = ({ children }) => {
+  const { user } = useAuthContext();
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const [selectedOrder, setSelectedOrder] = useState(null);
@@ -12,10 +14,7 @@ export const GameStashContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("darkTheme"))
   );
   const [changed, setChanged] = useState(false);
-  const likedGamesJSON = localStorage.getItem("likedGames");
-  const [likedGames, setLikedGames] = useState(
-    likedGamesJSON ? JSON.parse(likedGamesJSON) : []
-  );
+  const [likedGames, setLikedGames] = useState([]);
 
   const passer = {
     selectedGenre,
@@ -32,11 +31,25 @@ export const GameStashContextProvider = ({ children }) => {
     setChanged,
     likedGames,
     setLikedGames,
+    user,
   };
 
   useEffect(() => {
-    localStorage.setItem("likedGames", JSON.stringify(likedGames));
-  }, [likedGames]);
+    if (user) {
+      const fetchLikedGames = async () => {
+        try {
+          const response = await fetch(`/api/user/${user.id}/liked-games`);
+          const data = await response.json();
+          setLikedGames(data);
+        } catch (error) {
+          console.error("Failed to fetch liked games", error);
+        }
+        fetchLikedGames();
+      };
+    } else {
+      setLikedGames([]);
+    }
+  }, [user]);
 
   useEffect(() => {
     localStorage.setItem("darkTheme", JSON.stringify(darkTheme));

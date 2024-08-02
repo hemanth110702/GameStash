@@ -1,6 +1,6 @@
 <!-- 
 Todo:
-1) then create login, authentication, user model, added liked games id into user model
+1) frontend login logout, then add liked games id into user model
 2) also update the css of login and signup
 3) keep skeleton loading for not loaded images, and trailers
 4) should display error page if any request is failed
