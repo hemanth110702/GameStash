@@ -15,8 +15,10 @@ const Games = () => {
     likedGames,
     setLikedGames,
     darkTheme,
+    user
   } = useGameStashContext();
 
+  
   const [end, setEnd] = useState(false);
   const [loading, setLoading] = useState(true);
   const [skeletonLoading, setSkeletonLoading] = useState(false);

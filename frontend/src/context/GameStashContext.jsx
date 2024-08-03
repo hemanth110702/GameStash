@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuthContext } from "./AuthContext";
+import apiClient from "../services/apiClient";
 
 export const GameStashContext = createContext();
 export const useGameStashContext = () => useContext(GameStashContext);
@@ -38,14 +39,18 @@ export const GameStashContextProvider = ({ children }) => {
     if (user) {
       const fetchLikedGames = async () => {
         try {
-          const response = await fetch(`/api/user/${user.id}/liked-games`);
-          const data = await response.json();
+          const response = await apiClient.get(`/api/my-games/`, {
+            params: { email: user.email },
+          });
+
+          const data = await response.data;
           setLikedGames(data);
+          
         } catch (error) {
           console.error("Failed to fetch liked games", error);
         }
-        fetchLikedGames();
       };
+      fetchLikedGames();
     } else {
       setLikedGames([]);
     }

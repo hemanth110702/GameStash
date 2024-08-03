@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  myGames: [{ type: String }]
+  myGames: [{ type: Number }]
 });
 
 userSchema.statics.signup = async function (username, email, password) {

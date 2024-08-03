@@ -13,7 +13,7 @@ import { useGameStashContext } from "../context/GameStashContext";
 const GameDisplay = () => {
   const { darkTheme, likedGames, setLikedGames } = useGameStashContext();
   const data = useParams();
-  const [loading, setLoading] = useState(true); // Set initial loading state to true
+  const [loading, setLoading] = useState(true);
   const gameData = useGame(data.slug, setLoading);
 
   if (loading) {
@@ -47,7 +47,6 @@ const GameDisplay = () => {
     );
   }
 
-  // Once data is loaded, render the actual content
   const platforms = gameData.parent_platforms.map((item) => item.platform.name);
   const genres = gameData.genres.map((item) => item.name);
 

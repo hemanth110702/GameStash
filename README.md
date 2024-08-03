@@ -1,11 +1,12 @@
 <!-- 
 Todo:
-1) frontend login logout, then add liked games id into user model
+1) add liked games id into user model
 2) also update the css of login and signup
 3) keep skeleton loading for not loaded images, and trailers
 4) should display error page if any request is failed
 5) if we click on any genre search must be empty
 6) Add game not found error page
+7) use context for passing data, ex in Game
  -->
 
 
