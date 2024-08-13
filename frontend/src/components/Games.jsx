@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import useGames from "../hooks/useGames";
 import Game from "./Game";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -15,14 +15,13 @@ const Games = () => {
     likedGames,
     setLikedGames,
     darkTheme,
-    user
+    user,
   } = useGameStashContext();
 
-  
   const [end, setEnd] = useState(false);
   const [loading, setLoading] = useState(true);
   const [skeletonLoading, setSkeletonLoading] = useState(false);
-  const { games, error, setPage, hasMore } = useGames(
+  const { games, error, setPage, hasMore, setGames } = useGames(
     setLoading,
     selectedGenre,
     selectedPlatform,
@@ -32,13 +31,18 @@ const Games = () => {
     setSkeletonLoading
   );
   console.log(games);
+
+  useEffect(() => {
+    setGames(games);
+  }, [likedGames]);
+
   const skeletons = Array(20).fill(1);
 
   const observer = useRef();
 
   const lastGameElementRef = useCallback(
     (node) => {
-      if (loading) return; 
+      if (loading) return;
       if (observer.current) observer.current.disconnect();
 
       observer.current = new IntersectionObserver((entries) => {

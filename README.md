@@ -1,14 +1,20 @@
 <!-- 
 Todo:
-1) add liked games id into user model
+0) start from home page, adding and removing, then come to mygames
+1) unless user logouts, keep the login info, local storage
 2) also update the css of login and signup
 3) keep skeleton loading for not loaded images, and trailers
 4) should display error page if any request is failed
 5) if we click on any genre search must be empty
 6) Add game not found error page
 7) use context for passing data, ex in Game
+8) show errors correctly when password wrong, no user found likewise,...
+9) loading state for liked game
+10) only when user logged in can see myGames
+11) also check like button inside game display
+12) check query, param details like id, mail are correctly reaching backend
+13) check whether liked games are correctly updated
  -->
-
 
 <div id="top"></div>
 

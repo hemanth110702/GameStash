@@ -1,58 +1,60 @@
 const User = require("../model/User");
+const axios = require("axios");
 
 const myGamesList = async (req, res) => {
   const { email } = req.query;
-
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ message: "user not found" });
     return res.status(200).send(user.myGames);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", error });
+    res.status(500).json({ message: "Internal server error", error }); q
   }
 }
 
-const addToMyGames = async (req, res) => {
-  const { id, email } = req.params;
+const myGamesData = async (req, res) => {
+  console.log("i got called");
+
+  const { email } = req.body;
+  console.log("backend email", email);
 
   try {
     const user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(404).json({ message: "user not found" });
-    }
-
-    if (!user.myGames.includes(id)) {
-      user.myGames.push(id);
-      await user.save();
-    }
-
-    return res.status(200).json({ message: "Game added to myGames", user });
+    if (!user) return res.status(404).json({ message: "user not found" });
+    const gameDetailsList = await Promise.all(user.myGames.map(async (gameId) => {
+      const response = await axios.get(`https://api.rawg.io/api/games/${gameId}`, {
+        params: {
+          key: process.env.RAWG_API_KEY,
+        }
+      });
+      const { id, background_image, slug, parent_platforms, metacritic, name, released, rating_top } = response.data;
+      return { id, background_image, slug, parent_platforms, metacritic, name, released, rating_top };
+    }));
+    console.log(gameDetailsList);
+    res.status(200).json({ gameDetailsList });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", error });
+    console.log('Error fetching game data', error);
+    return res.status(500).json({ message: 'failed to fetch game data' });
   }
 }
 
-const removeFromMyGames = async (req, res) => {
-  const { id, email } = req.params;
-
+const updateMyGames = async (req, res) => {
+  const { id } = req.params;
+  const { email } = req.body;
   try {
     const user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(404).json({ message: "user not found" });
-    }
+    if (!user) return res.status(404).json({ message: "user not found" });
     const gameIndex = user.myGames.indexOf(id);
-    if (gameIndex > -1) {
-      user.myGames.splice(gameIndex, 1);
-      await user.save();
+    if (gameIndex === -1) {
+      user.myGames.push(id);
     } else {
-      return res.status(404).json({ message: "game not found in my games", user });
+      user.myGames.splice(gameIndex, 1);
     }
-    return res.status(200).json({ message: "game removed from my games", user });
+    await user.save();
+    return res.status(200).send(user);
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error", error });
+    res.status(500).json({ message: "Internal server error", error });
   }
 }
 
-module.exports = { addToMyGames, removeFromMyGames, myGamesList };
+module.exports = { updateMyGames, myGamesList, myGamesData };

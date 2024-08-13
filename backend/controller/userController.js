@@ -7,7 +7,7 @@ const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
 }
 
-const loginUser = async (req, res) => {
+const loginUser = async (req, res) => {  
   const { error } = validateUserCredentials(req.body, 1);
   if (error) return res.status(400).send(error.details[0].message);
 

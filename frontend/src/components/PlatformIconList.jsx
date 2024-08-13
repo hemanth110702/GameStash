@@ -25,7 +25,7 @@ const PlatformIconList = ({ platforms }) => {
 
   return (
     <div className="platform-list">
-      {platforms.map(({ platform }, index) => {
+      {platforms!=null && platforms.map(({ platform }, index) => {
         const IconComponent = iconMap[platform?.slug];
         if (!IconComponent) {
           console.error(`No icon found for platform slug: ${platform?.slug}`);

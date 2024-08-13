@@ -8,13 +8,15 @@ export const useLogin = () => {
   const [loading, setIsLoading] = useState(false);
   const login = async (email, password) => {
     setIsLoading(true);
+    console.log(email, password);
+    
     try {
       console.log("gotcha");
       const response = await apiClient.post("/api/user/login", {
         email,
         password
       });
-      console.log(response);
+      console.log("gotcha response",response);
       const data = response.data;
       localStorage.setItem("GameStashUser", JSON.stringify(data));
       dispatch({ type: "LOGIN", payload: data });

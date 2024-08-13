@@ -127,7 +127,7 @@ const useGames = (
     };
   }, [selectedGenre, selectedPlatform, selectedOrder, search]);
 
-  return { games, error, setPage, hasMore };
+  return { games, error, setPage, hasMore, setGames };
 };
 
 export default useGames;

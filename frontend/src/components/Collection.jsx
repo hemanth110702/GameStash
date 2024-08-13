@@ -1,22 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import fav from "../assets/fav.png";
 import favfill from "../assets/favfill.png";
+import apiClient from "../services/apiClient";
+import { useGameStashContext } from "../context/GameStashContext";
 
-const Collection = ({ game, likedGames, setLikedGames }) => {
-  const checkIsLiked =
-    likedGames.filter((gameObj) => gameObj.id === game.id).length > 0;
+const Collection = ({ game }) => {
+  const { user, likedGames, setLikedGames } = useGameStashContext();
 
-  const [isLiked, setIsLiked] = useState(checkIsLiked);
+  const checkIsLiked = () => {
+    return likedGames.includes(game.id);
+  };
 
-  const toggleLikedGame = () => {
+  const [isLiked, setIsLiked] = useState(checkIsLiked());
+
+  useEffect(() => {
+    setIsLiked(checkIsLiked());
+  }, [likedGames]);
+
+  const toggleLikedGame = async () => {
     if (!isLiked) {
-      setLikedGames((prevLikedGames) => [...prevLikedGames, game]);
+      setLikedGames((prevLikedGames) => [...prevLikedGames, game.id]);
     } else {
       setLikedGames((prevLikedGames) =>
-        prevLikedGames.filter((gameObj) => gameObj.id !== game.id)
+        prevLikedGames.filter((likedGame) => likedGame !== game.id)
       );
     }
-    setIsLiked(!isLiked);
+    try {
+      const response = await apiClient.put(`/api/my-games/update/${game.id}`, {
+        email: user.email,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log("Error updating liked games:", error);
+    }
   };
 
   return (

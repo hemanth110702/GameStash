@@ -18,20 +18,19 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { user: null });
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("GameStashUser"));
     if (user) {
       dispatch({ type: "LOGIN", payload: user });
     }
   }, []);
 
   const login = (userData) => {
-    localStorage.setItem("user", JSON.stringify(userData));
-    console.log(userData);
+    localStorage.setItem("GameStashUser", JSON.stringify(userData));
     dispatch({ type: "LOGIN", payload: userData });
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("GameStashUser");
     dispatch({ type: "LOGOUT" });
   };
 

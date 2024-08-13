@@ -1,12 +1,12 @@
 const express = require('express');
 const requireAuth = require('../middleware/requireAuth');
-const { addToMyGames, removeFromMyGames, myGamesList } = require('../controller/myGamesController');
+const { myGamesList, updateMyGames, myGamesData } = require('../controller/myGamesController');
 
 const router = express.Router();
 
 // router.use(requireAuth);
 router.get("/", myGamesList);
-router.post("/add/:id", addToMyGames);
-router.post("/remove/:id", removeFromMyGames);
+router.post("/data", myGamesData);
+router.put("/update/:id", updateMyGames);
 
 module.exports = router;

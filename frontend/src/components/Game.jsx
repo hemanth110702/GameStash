@@ -26,11 +26,7 @@ const Game = ({ game, likedGames, setLikedGames, darkTheme }) => {
         <ReleaseDate release={game.released} />
         <div className={darkTheme ? "card-bottom" : "light-card-bottom"}>
           <Emoji ratingTop={game.rating_top} />
-          <Collection
-            game={game}
-            likedGames={likedGames}
-            setLikedGames={setLikedGames}
-          />
+          <Collection game={game} />
         </div>
       </div>
     </div>

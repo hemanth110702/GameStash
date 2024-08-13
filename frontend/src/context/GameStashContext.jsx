@@ -42,10 +42,9 @@ export const GameStashContextProvider = ({ children }) => {
           const response = await apiClient.get(`/api/my-games/`, {
             params: { email: user.email },
           });
-
           const data = await response.data;
           setLikedGames(data);
-          
+          localStorage.setItem("likedGames", JSON.stringify(data));
         } catch (error) {
           console.error("Failed to fetch liked games", error);
         }
@@ -53,6 +52,7 @@ export const GameStashContextProvider = ({ children }) => {
       fetchLikedGames();
     } else {
       setLikedGames([]);
+      localStorage.removeItem("likedGames");
     }
   }, [user]);
 
