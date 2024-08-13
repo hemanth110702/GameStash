@@ -1,7 +1,6 @@
 <!-- 
 Todo:
-0) start from home page, adding and removing, then come to mygames
-1) unless user logouts, keep the login info, local storage
+0) loading state for myGames
 2) also update the css of login and signup
 3) keep skeleton loading for not loaded images, and trailers
 4) should display error page if any request is failed

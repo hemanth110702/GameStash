@@ -21,7 +21,7 @@ const MyGames = () => {
         setLoading(true);
         const response = await apiClient.post("/api/my-games/data", {
           email: user.email,
-        });        
+        });
         setGamesData(response.data.gameDetailsList);
       } catch (error) {
         setError(error);
@@ -35,7 +35,17 @@ const MyGames = () => {
       console.log("calling");
       fetchLikedGamesData();
     }
-  }, [user, likedGames]);
+  }, []);
+
+  useEffect(() => {
+    console.log("updated liked games, new useeffect");
+    console.log(gamesData, likedGames);
+    setGamesData((prevGamesData) =>
+      prevGamesData.filter((game) => likedGames.includes(game.id))
+    );
+
+    console.log(gamesData, likedGames);
+  }, [likedGames]);
 
   if (gamesData) {
     return (
