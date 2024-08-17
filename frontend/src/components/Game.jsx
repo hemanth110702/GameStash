@@ -6,8 +6,10 @@ import getOptimizedImage from "../services/image-url";
 import Emoji from "./Emoji";
 import { Link } from "react-router-dom";
 import Collection from "./Collection";
+import { useGameStashContext } from "../context/GameStashContext";
 
 const Game = ({ game, likedGames, setLikedGames, darkTheme }) => {
+  const { user } = useGameStashContext();
   return (
     <div className={darkTheme ? "game-card" : "light-game-card"}>
       <img src={getOptimizedImage(game.background_image)} alt="game" />
@@ -26,7 +28,7 @@ const Game = ({ game, likedGames, setLikedGames, darkTheme }) => {
         <ReleaseDate release={game.released} />
         <div className={darkTheme ? "card-bottom" : "light-card-bottom"}>
           <Emoji ratingTop={game.rating_top} />
-          <Collection game={game} />
+          {user && <Collection game={game} />}
         </div>
       </div>
     </div>

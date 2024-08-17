@@ -97,6 +97,8 @@ const MyGames = () => {
             );
           })}
         </div>
+        {!user && <h1 className="show-up">You need to login to like games</h1>}
+        {gamesData.length === 0 && <h1>There are no games liked yet!</h1>}
         <button>
           <Link to="/">Go back Home</Link>
         </button>

@@ -11,7 +11,7 @@ import Collection from "../components/Collection";
 import { useGameStashContext } from "../context/GameStashContext";
 
 const GameDisplay = () => {
-  const { darkTheme, likedGames, setLikedGames } = useGameStashContext();
+  const { darkTheme, likedGames, setLikedGames, user } = useGameStashContext();
   const data = useParams();
   const [loading, setLoading] = useState(true);
   const gameData = useGame(data.slug, setLoading);
@@ -55,11 +55,13 @@ const GameDisplay = () => {
       <div>
         <h1>
           {gameData.name}{" "}
-          <Collection
-            game={gameData}
-            likedGames={likedGames}
-            setLikedGames={setLikedGames}
-          />{" "}
+          {user && (
+            <Collection
+              game={gameData}
+              likedGames={likedGames}
+              setLikedGames={setLikedGames}
+            />
+          )}{" "}
         </h1>
         <ExpandableText description={gameData.description_raw} />
         <div className={darkTheme ? "df-items" : "light-df-items"}>
@@ -73,9 +75,11 @@ const GameDisplay = () => {
         </div>
       </div>
       <div className="game-visuals">
-      {  <div className={"game-trailer"}>
-          <GameTrailer slug={data.slug} />
-        </div>}
+        {
+          <div className={"game-trailer"}>
+            <GameTrailer slug={data.slug} />
+          </div>
+        }
         <div className={"game-ss"}>
           <GameScreenShots slug={data.slug} />
         </div>

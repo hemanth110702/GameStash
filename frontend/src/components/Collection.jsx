@@ -18,6 +18,7 @@ const Collection = ({ game }) => {
   }, [likedGames]);
 
   const toggleLikedGame = async () => {
+    const tempLikedGames = [...likedGames];
     if (!isLiked) {
       setLikedGames((prevLikedGames) => [...prevLikedGames, game.id]);
     } else {
@@ -26,11 +27,11 @@ const Collection = ({ game }) => {
       );
     }
     try {
-      const response = await apiClient.put(`/api/my-games/update/${game.id}`, {
+      await apiClient.put(`/api/my-games/update/${game.id}`, {
         email: user.email,
       });
-      console.log(response);
     } catch (error) {
+      setLikedGames(tempLikedGames);
       console.log("Error updating liked games:", error);
     }
   };

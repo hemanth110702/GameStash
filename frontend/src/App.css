@@ -679,6 +679,10 @@ select:focus {
   font-family: var(--ff-francois);
 }
 
+.show-up {
+  color: red;
+}
+
 /* game-display ------------------------------------------------- */
 
 .game-display,

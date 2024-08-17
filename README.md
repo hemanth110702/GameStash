@@ -1,5 +1,6 @@
 <!-- 
 Todo:
+0) remove like icon, home, desc,then mygames - sentence
 1) remove from liked game if req failed
 2) also update the css of login and signup
 3) keep skeleton loading for not loaded images, and trailers
