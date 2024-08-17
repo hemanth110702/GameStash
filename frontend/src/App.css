@@ -59,7 +59,8 @@ a {
 .light-df-items > .df-item > dt,
 .my-games-page > button > a,
 .light-my-games-page > button > a,
-.light-game-display > div > h1 {
+.light-game-display > div > h1,
+.light-auth-container > button {
   color: black;
 }
 
@@ -68,7 +69,8 @@ a {
 .sidebar > ul > li > p,
 .game-description > h1 > a,
 .df-item > dt,
-.game-display > div > h1 {
+.game-display > div > h1,
+.auth-container > button {
   color: white;
 }
 
@@ -126,6 +128,7 @@ a {
   display: grid;
   grid-template-columns: 0.3fr 1.4fr 0.3fr 0.2fr 0.2fr;
   align-items: center;
+  margin-right: 20px;
   gap: 1rem;
 }
 
@@ -261,7 +264,7 @@ input:checked + .slider:before {
   top: 50% !important;
   left: 50% !important;
   right: 50% !important;
-  bottom: 10% !important;
+  bottom: -15% !important;
   margin-right: -50% !important;
   transform: translate(-50%, -50%) !important;
   padding: 20px !important;
@@ -272,13 +275,125 @@ input:checked + .slider:before {
 
 .authFC {
   display: flex;
+  background-color: rgb(34, 32, 55);
 }
 
-.lform, .sform {
+.auth-picker {
+  background-color: rgba(57, 106, 158, 0.315);
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #5a5d60;
+  border-radius: 4px;
+}
+
+/* .lform, .sform {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-inline: auto;
+  background-color: green;
+} */
+ .lform, .sform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8; /* Light background color for the form */
+  padding: 20px; /* Padding inside the form */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 300px; /* Set a fixed width for the form */
+  margin: auto; /* Center horizontally */
+  margin-top: 10%; /* Adjust the vertical position as needed */
 }
+
+.lform label, .sform label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; /* Space between labels and inputs */
+  width: 100%; /* Make inputs take full width */
+}
+
+.lform input, .sform input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%; /* Full width for the inputs */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.lform button, .sform button {
+  font-size: 1rem;
+  background-color: rgb(41, 39, 39);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%; /* Full width for the button */
+}
+
+.lform button:hover, .sform button:hover {
+  background-color: #5f5959;
+}
+
+.auth-container > button {
+  background-color: rgb(41, 39, 39);
+  
+}
+
+.light-auth-container > button {
+  background-color: rgb(155, 154, 154);
+}
+
+.auth-container > button,
+.light-auth-container > button {
+  font-size: 1rem;
+  border: 0;
+  border-radius: 10px;
+  padding: 5%;
+  font-weight: bold;
+  font-family: var(--ff-francois);
+  cursor: pointer;
+}
+
+.auth-container > button:hover {
+  background-color: #ccc;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.buttonload {
+  background-color: #04AA6D; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 24px; /* Some padding */
+  font-size: 16px; /* Set a font-size */
+}
+
+/* Add a right margin to each icon */
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
+}
+
 
 /* Sidebar ------------------------------------------------- */
 

@@ -20,6 +20,7 @@ const NavBar = () => {
 
   const handleLogout = () => {
     logout();
+    setModalIsOpen(false);
   };
 
   return (
@@ -49,7 +50,9 @@ const NavBar = () => {
           </div>
         )}
         {user == null && (
-          <div>
+          <div
+            className={darkTheme ? "auth-container" : "light-auth-container"}
+          >
             <button onClick={openModal}>Login / Signup</button>
             <AuthModal isOpen={modalIsOpen} onRequestClose={closeModal} />
           </div>

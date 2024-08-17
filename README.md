@@ -1,6 +1,6 @@
 <!-- 
 Todo:
-0) loading state for myGames
+1) remove from liked game if req failed
 2) also update the css of login and signup
 3) keep skeleton loading for not loaded images, and trailers
 4) should display error page if any request is failed
@@ -13,6 +13,7 @@ Todo:
 11) also check like button inside game display
 12) check query, param details like id, mail are correctly reaching backend
 13) check whether liked games are correctly updated
+14) myGames and liking feat only when user is logged in
  -->
 
 <div id="top"></div>
