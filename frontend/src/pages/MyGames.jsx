@@ -30,19 +30,14 @@ const MyGames = () => {
     };
 
     if (user?.username !== undefined && likedGames.length > 0) {
-      console.log("calling");
       fetchLikedGamesData();
     }
   }, []);
 
   useEffect(() => {
-    console.log("updated liked games, new useeffect");
-    console.log(gamesData, likedGames);
     setGamesData((prevGamesData) =>
       prevGamesData.filter((game) => likedGames.includes(game.id))
     );
-
-    console.log(gamesData, likedGames);
   }, [likedGames]);
 
   if (loading) {
@@ -98,7 +93,7 @@ const MyGames = () => {
           })}
         </div>
         {!user && <h1 className="show-up">You need to login to like games</h1>}
-        {gamesData.length === 0 && <h1>There are no games liked yet!</h1>}
+        {user && gamesData.length === 0 && <h1>There are no games liked yet!</h1>}
         <button>
           <Link to="/">Go back Home</Link>
         </button>

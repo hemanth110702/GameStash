@@ -12,7 +12,6 @@ const NavBar = () => {
     useGameStashContext();
   const { logout } = useLogout();
 
-  console.log(user);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => setModalIsOpen(true);
@@ -44,9 +43,23 @@ const NavBar = () => {
           </NavLink>{" "}
         </div>
         {user != null && (
-          <div>
-            <div>{user.username}</div>
-            <div onClick={handleLogout}>Logout</div>
+          <div className="user-container">
+            <div
+              className={darkTheme ? "username" : "light-username"}
+              title={user.username}
+            >
+              {user.username.length > 10
+                ? user.username.slice(0, 9) + "..."
+                : user.username}
+            </div>
+            <div
+              className={
+                darkTheme ? "logout-container" : "light-logout-container"
+              }
+              onClick={handleLogout}
+            >
+              <button>Logout</button>
+            </div>
           </div>
         )}
         {user == null && (

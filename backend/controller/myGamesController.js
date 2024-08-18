@@ -8,15 +8,12 @@ const myGamesList = async (req, res) => {
     if (!user) return res.status(404).json({ message: "user not found" });
     return res.status(200).send(user.myGames);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", error }); q
+    res.status(500).json({ message: "Internal server error", error });
   }
 }
 
 const myGamesData = async (req, res) => {
-  console.log("i got called");
-
   const { email } = req.body;
-  console.log("backend email", email);
 
   try {
     const user = await User.findOne({ email });
@@ -30,7 +27,6 @@ const myGamesData = async (req, res) => {
       const { id, background_image, slug, parent_platforms, metacritic, name, released, rating_top } = response.data;
       return { id, background_image, slug, parent_platforms, metacritic, name, released, rating_top };
     }));
-    console.log(gameDetailsList);
     res.status(200).json({ gameDetailsList });
   } catch (error) {
     console.log('Error fetching game data', error);

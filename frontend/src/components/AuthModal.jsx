@@ -22,7 +22,6 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
     setPassword("");
     setErrors({});
     setAuthType((prev) => (prev === "login" ? "register" : "login"));
-    // Reset errors when switching forms
     if (authType === "login") {
       serr = null;
     } else {

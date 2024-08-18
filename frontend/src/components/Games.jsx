@@ -30,7 +30,6 @@ const Games = () => {
     search,
     setSkeletonLoading
   );
-  console.log(games);
 
   useEffect(() => {
     setGames(games);

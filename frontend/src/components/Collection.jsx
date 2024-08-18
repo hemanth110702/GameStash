@@ -6,7 +6,6 @@ import { useGameStashContext } from "../context/GameStashContext";
 
 const Collection = ({ game }) => {
   const { user, likedGames, setLikedGames } = useGameStashContext();
-
   const checkIsLiked = () => {
     return likedGames.includes(game.id);
   };

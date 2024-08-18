@@ -254,7 +254,6 @@ input:checked + .slider:before {
   font-size: 1.5rem;
 }
 
-
 /* AuthModal.css */
 .ReactModal__Overlay {
   background-color: rgba(0, 0, 0, 0.9) !important;
@@ -304,7 +303,8 @@ input:checked + .slider:before {
   margin-inline: auto;
   background-color: green;
 } */
- .lform, .sform {
+.lform,
+.sform {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -318,14 +318,16 @@ input:checked + .slider:before {
   margin-top: 10%; /* Adjust the vertical position as needed */
 }
 
-.lform label, .sform label {
+.lform label,
+.sform label {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px; /* Space between labels and inputs */
   width: 100%; /* Make inputs take full width */
 }
 
-.lform input, .sform input {
+.lform input,
+.sform input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -334,7 +336,8 @@ input:checked + .slider:before {
   box-sizing: border-box; /* Include padding in width */
 }
 
-.lform button, .sform button {
+.lform button,
+.sform button {
   font-size: 1rem;
   background-color: rgb(41, 39, 39);
   color: white;
@@ -346,13 +349,54 @@ input:checked + .slider:before {
   width: 100%; /* Full width for the button */
 }
 
-.lform button:hover, .sform button:hover {
+.lform button:hover,
+.sform button:hover {
   background-color: #5f5959;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-container > button,
+.light-logout-container > button {
+  border: 0;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-container > button {
+  color: white;
+  background-color: rgb(41, 39, 39);
+}
+
+.light-logout-container > button {
+  color: black;
+  background-color: #ccc;
+}
+
+.logout-container > button:hover {
+  background-color: #9f9e9e;
+}
+
+.light-logout-container > button:hover {
+  background-color: #706b6b;
+}
+
+.username {
+  color: white;
+}
+
+.light-username {
+  color: black;
 }
 
 .auth-container > button {
   background-color: rgb(41, 39, 39);
-  
 }
 
 .light-auth-container > button {
@@ -381,7 +425,7 @@ input:checked + .slider:before {
 }
 
 .buttonload {
-  background-color: #04AA6D; /* Green background */
+  background-color: #04aa6d; /* Green background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 12px 24px; /* Some padding */
@@ -393,7 +437,6 @@ input:checked + .slider:before {
   margin-left: -12px;
   margin-right: 8px;
 }
-
 
 /* Sidebar ------------------------------------------------- */
 
@@ -904,7 +947,7 @@ select:focus {
     grid-template-columns: 1fr 1fr 1fr;
   }
   .navbar-section {
-    grid-template-columns: 0.3fr 1fr 0.3fr 0.2fr;
+    grid-template-columns: 0.3fr 1fr 0.3fr 0.2fr 0.2fr;
   }
   .my-games-games {
     grid-template-columns: 1fr 1fr 1fr;
@@ -916,7 +959,7 @@ select:focus {
     grid-template-columns: 1fr 1fr;
   }
   .navbar-section {
-    grid-template-columns: 0.3fr 0.5fr 0.3fr 0.3fr;
+    grid-template-columns: 0.2fr 0.7fr 0.4fr 0.3fr 0.2fr;
   }
   .my-games-games {
     grid-template-columns: 1fr 1fr;
@@ -932,7 +975,7 @@ select:focus {
     grid-template-columns: 1fr;
   }
   .navbar-section {
-    grid-template-columns: 0.3fr 0.5fr 0.3fr;
+    grid-template-columns: 0.2fr 0.4fr 0.35fr 0.2fr;
   }
   .themes,
   .light-themes {
@@ -949,11 +992,14 @@ select:focus {
 
 @media screen and (max-width: 560px) {
   .navbar-section {
-    grid-template-columns: 1fr 0fr 1fr;
+    grid-template-columns: 1fr 0fr 1.5fr 0.2fr;
     justify-content: flex-end;
   }
   .navbar-section > form > input {
     display: none;
+  }
+  .category {
+    padding-top: 5rem !important;
   }
   .my-games,
   .light-my-games {

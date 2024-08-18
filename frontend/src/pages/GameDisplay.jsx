@@ -17,7 +17,6 @@ const GameDisplay = () => {
   const gameData = useGame(data.slug, setLoading);
 
   if (loading) {
-    // Render loading skeleton while data is being fetched
     return (
       <SkeletonTheme
         color={darkTheme ? "#282c36" : "#f2f2f2"}
@@ -75,11 +74,9 @@ const GameDisplay = () => {
         </div>
       </div>
       <div className="game-visuals">
-        {
-          <div className={"game-trailer"}>
-            <GameTrailer slug={data.slug} />
-          </div>
-        }
+        <div className={"game-trailer"}>
+          <GameTrailer slug={data.slug} />
+        </div>
         <div className={"game-ss"}>
           <GameScreenShots slug={data.slug} />
         </div>
