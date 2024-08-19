@@ -2,7 +2,8 @@ import axios from "axios";
 
 const baseURLs = {
   development: "http://localhost:5000/",
-  production: "",
+  production:
+    "https://gamestash-backend-m0t12csyp-hemanth110702s-projects.vercel.app/",
 };
 
 const baseURL =
