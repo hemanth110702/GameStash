@@ -8,7 +8,11 @@ const myGamesRoute = require('./routes/myGamesRoute');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://gamestash-frontend-lmj20opwr-hemanth110702s-projects.vercel.app",
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/user", userRoute);
