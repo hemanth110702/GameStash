@@ -9,8 +9,11 @@ const myGamesRoute = require('./routes/myGamesRoute');
 const app = express();
 
 const corsOptions = {
-  origin: "https://gamestash-frontend-lmj20opwr-hemanth110702s-projects.vercel.app",
+  origin: "https://gamestash-frontend-lmj20opwr-hemanth110702s-projects.vercel.app", 
+  optionsSuccessStatus: 200, 
 };
+
+app.options("*", cors(corsOptions));
 
 app.use(cors(corsOptions));
 app.use(express.json());
