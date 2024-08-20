@@ -168,6 +168,6 @@ Welcome to GameStash, a MERN-based website that lets users explore and save thei
 </table>
 
 ## Link
-[🚀 Live Page](https://game-stash.netlify.app/)
+[🚀 Live Page](https://gamestash-frontend.vercel.app/)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>
