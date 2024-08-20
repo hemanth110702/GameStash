@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-# GameStash - React Game Explorer
+# GameStash - Game Explorer
 
 <details>
 <summary>Table of contents</summary>
