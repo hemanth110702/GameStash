@@ -11,33 +11,40 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
 
   const [authType, setAuthType] = useState("login");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("guest@gmail.com");
+  const [password, setPassword] = useState("Guest@1234");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [localSerr, setLocalSerr] = useState(null);
+  const [localLerr, setLocalLerr] = useState(null);
 
   const goToAuth = () => {
     setUsername("");
-    setEmail("");
-    setPassword("");
     setErrors({});
-    setAuthType((prev) => (prev === "login" ? "register" : "login"));
+
     if (authType === "login") {
-      serr = null;
+      setEmail("");
+      setPassword("");
+      setLocalSerr(null);
     } else {
-      lerr = null;
+      setEmail("guest@gmail.com");
+      setPassword("Guest@1234");
+      setLocalLerr(null);
     }
+    setAuthType((prev) => (prev === "login" ? "register" : "login"));
   };
 
   useEffect(() => {
     if (lerr) {
       console.log("Login error:", lerr);
+      setLocalLerr(lerr);
     }
   }, [lerr]);
 
   useEffect(() => {
     if (serr) {
       console.log("Signup error:", serr);
+      setLocalSerr(serr);
     }
   }, [serr]);
 
@@ -114,10 +121,10 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
       {authType === "login" && <h1>GameStash Login</h1>}
-      {authType != "login" && <h1>GameStash Register</h1>}
+      {authType !== "login" && <h1>GameStash Register</h1>}
 
       <div className="authFC">
-        {authType == "login" && (
+        {authType === "login" && (
           <form onSubmit={handleLogin} className="lform">
             <p>Enter your login details:</p>
             <label>
@@ -152,24 +159,26 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
                 <div className="error">{errors.password}</div>
               )}
             </label>
-            {lerr && <div className="error">{lerr}</div>}
+            {localLerr && <div className="error">{localLerr}</div>}
             <br />
             {!loading && <button type="submit">Login</button>}
             {loading && (
-              <button class="buttonload">
-                <i class="fa fa-spinner fa-spin"></i>
+              <button className="buttonload">
+                <i className="fa fa-spinner fa-spin"></i>
               </button>
             )}
             <p>
               Don't have an account?{" "}
-              <button onClick={goToAuth}>Register</button>
+              <button type="button" onClick={goToAuth}>
+                Register
+              </button>
             </p>
           </form>
         )}
 
-        {authType == "register" && (
+        {authType === "register" && (
           <form onSubmit={handleRegister} className="sform">
-            Create your account :
+            <p>Create your account:</p>
             <label>
               Username:
               <input
@@ -218,16 +227,19 @@ const AuthModal = ({ isOpen, onRequestClose }) => {
                 <div className="error">{errors.password}</div>
               )}
             </label>
-            {serr && <div className="error">{serr}</div>}
+            {localSerr && <div className="error">{localSerr}</div>}
             <br />
             {!loading && <button type="submit">Register</button>}
             {loading && (
-              <button class="buttonload">
-                <i class="fa fa-spinner fa-spin"></i>
+              <button className="buttonload">
+                <i className="fa fa-spinner fa-spin"></i>
               </button>
             )}
             <p>
-              Already have an account? <button onClick={goToAuth}>Login</button>
+              Already have an account?{" "}
+              <button type="button" onClick={goToAuth}>
+                Login
+              </button>
             </p>
           </form>
         )}
